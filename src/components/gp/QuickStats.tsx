@@ -77,7 +77,7 @@ export default function QuickStats() {
   ];
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm p-5">
+    <div className="bg-white rounded-2xl shadow-sm p-4 md:p-5">
       <h3 className="font-display text-base font-semibold text-zentic-purple-dark mb-4">
         Key Metrics
       </h3>

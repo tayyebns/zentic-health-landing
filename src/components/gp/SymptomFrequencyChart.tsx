@@ -65,7 +65,7 @@ export default function SymptomFrequencyChart() {
   }, [symptoms]);
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm p-6">
+    <div className="bg-white rounded-2xl shadow-sm p-4 md:p-6">
       <div className="flex items-center justify-between mb-5">
         <h3 className="font-display text-base font-semibold text-zentic-purple-dark">
           Symptom Frequency

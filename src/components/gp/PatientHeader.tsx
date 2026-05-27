@@ -24,22 +24,22 @@ export default function PatientHeader() {
   }
 
   return (
-    <div className="bg-white border-b border-gray-100 px-8 py-5">
-      <div className="max-w-7xl mx-auto flex items-center justify-between gap-6">
+    <div className="bg-white border-b border-gray-100 px-4 md:px-8 py-4 md:py-5">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-6">
         {/* Avatar + info */}
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-4">
           <div
-            className="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 text-white font-display text-xl font-semibold"
+            className="w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center flex-shrink-0 text-white font-display text-xl font-semibold"
             style={{ backgroundColor: "#9485D4" }}
           >
             {patient.name[0]}
           </div>
 
           <div>
-            <h2 className="font-display text-2xl font-semibold text-zentic-purple-dark leading-tight">
+            <h2 className="font-display text-xl md:text-2xl font-semibold text-zentic-purple-dark leading-tight">
               {patient.name}
             </h2>
-            <div className="flex items-center flex-wrap gap-x-2 gap-y-1 mt-1">
+            <div className="flex items-center flex-wrap gap-x-2 gap-y-1 mt-0.5">
               <span className="font-sans text-sm text-gray-500">
                 {patient.age} yrs
               </span>
@@ -56,16 +56,15 @@ export default function PatientHeader() {
               </span>
             </div>
             {dates.length > 0 && (
-              <p className="font-sans text-xs text-gray-400 mt-1">
-                Data window: {fmtDate(earliest)} – {fmtDate(latest)} ·{" "}
-                {symptoms.length} entries
+              <p className="font-sans text-xs text-gray-400 mt-0.5">
+                Data window: {fmtDate(earliest)} – {fmtDate(latest)} · {symptoms.length} entries
               </p>
             )}
           </div>
         </div>
 
         {/* Access indicators */}
-        <div className="flex items-center gap-3 flex-shrink-0">
+        <div className="flex items-center gap-2 flex-shrink-0">
           <div
             className="flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold"
             style={{ backgroundColor: "#DCFCE7", color: "#15803D" }}

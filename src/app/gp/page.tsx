@@ -35,7 +35,7 @@ export default function GPDashboard() {
     <div className="min-h-screen" style={{ backgroundColor: "#F3F1F8" }}>
       {/* Sticky nav bar */}
       <nav
-        className="bg-white border-b border-gray-100 px-8 py-3.5 flex items-center justify-between"
+        className="bg-white border-b border-gray-100 px-4 md:px-8 py-3.5 flex items-center justify-between"
         style={{ position: "sticky", top: 0, zIndex: 40 }}
       >
         <div className="flex items-center gap-3">
@@ -73,10 +73,10 @@ export default function GPDashboard() {
       </FadeUp>
 
       {/* Main dashboard grid */}
-      <main className="max-w-7xl mx-auto px-8 py-7 space-y-6">
+      <main className="max-w-7xl mx-auto px-4 md:px-8 py-5 md:py-7 space-y-4 md:space-y-6">
         {/* Row 1: AI Summary (2/3) + Key Metrics (1/3) */}
-        <div className="grid grid-cols-3 gap-6 items-start">
-          <FadeUp delay={0.05} className="col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 items-start">
+          <FadeUp delay={0.05} className="md:col-span-2">
             <AISummaryCard />
           </FadeUp>
           <FadeUp delay={0.1}>
@@ -85,8 +85,8 @@ export default function GPDashboard() {
         </div>
 
         {/* Row 2: Symptom Trend (2/3) + Frequency (1/3) */}
-        <div className="grid grid-cols-3 gap-6 items-start">
-          <FadeUp delay={0.15} className="col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 items-start">
+          <FadeUp delay={0.15} className="md:col-span-2">
             <SymptomTrendChart />
           </FadeUp>
           <FadeUp delay={0.2}>
@@ -95,7 +95,7 @@ export default function GPDashboard() {
         </div>
 
         {/* Row 3: Adherence (1/2) + Timeline (1/2) */}
-        <div className="grid grid-cols-2 gap-6 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-start">
           <FadeUp delay={0.25}>
             <MedicationAdherence />
           </FadeUp>

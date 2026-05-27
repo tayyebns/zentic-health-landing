@@ -15,7 +15,7 @@ export default function AISummaryCard() {
     <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
       {/* Card header */}
       <div
-        className="flex items-center justify-between px-6 py-4 border-b border-gray-50"
+        className="flex items-start justify-between gap-3 px-4 md:px-6 py-4 border-b border-gray-50 flex-wrap"
         style={{ backgroundColor: "#FDFCFF" }}
       >
         <div className="flex items-center gap-2.5">
@@ -31,7 +31,7 @@ export default function AISummaryCard() {
             AI Health Snapshot
           </span>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-wrap">
           <span
             className="rounded-full text-[10px] font-semibold px-2.5 py-1"
             style={{ backgroundColor: "#EDEAF6", color: "#9485D4" }}
@@ -44,7 +44,7 @@ export default function AISummaryCard() {
         </div>
       </div>
 
-      <div className="px-6 py-5">
+      <div className="px-4 md:px-6 py-5">
         {/* Summary paragraph */}
         <p className="font-sans text-sm text-gray-700 leading-relaxed">
           {gpSummary.summaryText}
