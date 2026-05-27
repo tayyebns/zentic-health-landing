@@ -9,16 +9,10 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
   const isRTL = lang === "ur" || lang === "pa";
 
   return (
-    <div className="h-screen overflow-hidden flex items-center justify-center bg-zentic-backdrop">
+    <div className="h-dvh overflow-hidden flex items-center justify-center bg-zentic-bg md:bg-zentic-backdrop">
       <div
         dir={isRTL ? "rtl" : "ltr"}
-        className="relative flex flex-col bg-zentic-bg overflow-hidden"
-        style={{
-          width: 390,
-          height: "min(844px, 100vh)",
-          borderRadius: 28,
-          boxShadow: "0 25px 60px rgba(0,0,0,0.18), 0 8px 20px rgba(0,0,0,0.10)",
-        }}
+        className="relative flex flex-col bg-zentic-bg overflow-hidden w-full h-full md:w-[390px] md:max-h-[844px] md:rounded-[28px] md:shadow-phone"
       >
         <LanguagePills />
         <div className="flex-1 overflow-y-auto min-h-0">
