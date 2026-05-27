@@ -41,3 +41,10 @@ export interface ChatMessage {
   role: ChatRole;
   text: string;
 }
+
+export type TranscriptSpeaker = 'Doctor' | 'You';
+
+export interface TranscriptLine {
+  speaker: TranscriptSpeaker;
+  text: string;
+}

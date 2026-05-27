@@ -4,6 +4,7 @@ import type {
   Medication,
   GpSummary,
   ChatMessage,
+  TranscriptLine,
 } from './types';
 
 export const seedPatient: Patient = {
@@ -233,5 +234,48 @@ export const seedChatMessages: ChatMessage[] = [
       'depending on your full medication plan. As a general note, if it is still the same day ' +
       'and close to your usual time, you may be able to take it — but do not double up. ' +
       'I have logged this as skipped so your GP is aware at your next review.',
+  },
+];
+
+export const seedAppointmentTranscript: TranscriptLine[] = [
+  {
+    speaker: 'Doctor',
+    text: 'Good morning, Maria. How have you been feeling since our last appointment?',
+  },
+  {
+    speaker: 'You',
+    text: 'Better, thank you. The headaches have definitely been easing off over the past couple of weeks. They were quite bad at the start of May.',
+  },
+  {
+    speaker: 'Doctor',
+    text: 'Good to hear. I can see from your health summary that your symptom severity has been coming down steadily. Your blood pressure reading in early May was 148 over 92 — have you been monitoring it at home?',
+  },
+  {
+    speaker: 'You',
+    text: 'I have been trying to, yes. It does seem to be coming down a little.',
+  },
+  {
+    speaker: 'Doctor',
+    text: 'That is encouraging. How are you getting on with the Amlodipine?',
+  },
+  {
+    speaker: 'You',
+    text: 'I take it every morning with the Metformin. I sometimes forget the evening tablets though — the Atorvastatin.',
+  },
+  {
+    speaker: 'Doctor',
+    text: 'The Atorvastatin works best taken in the evening, so do try to keep that consistent. I also noticed you flagged some nausea in your symptom log. Is that still happening?',
+  },
+  {
+    speaker: 'You',
+    text: 'It was mainly when I took the Metformin without eating first. I have been having breakfast before taking it and that seems to have helped a lot.',
+  },
+  {
+    speaker: 'Doctor',
+    text: 'That is exactly right — food makes a real difference with Metformin. Everything looks positive overall. Let us review again in six weeks and we will check your blood pressure and HbA1c at that point.',
+  },
+  {
+    speaker: 'You',
+    text: 'Thank you, doctor. That is really reassuring.',
   },
 ];
