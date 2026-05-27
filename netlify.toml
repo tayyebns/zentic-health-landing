@@ -1,0 +1,16 @@
+# Zentic Health — Netlify deployment configuration
+# How it works: @netlify/plugin-nextjs rewrites the Next.js 14 App Router output
+# into Netlify Functions + Edge Functions, so SSR, dynamic routes, and middleware
+# all work without any Vercel-specific infrastructure.
+#
+# To deploy:
+#   1. Connect the GitHub repo (tayyebns/ZenticHealthDemoMVP) in the Netlify UI.
+#   2. Netlify auto-detects these settings — no manual changes needed in the UI.
+#   3. Hit "Deploy site". Done.
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
