@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import PatientHeader from "@/components/gp/PatientHeader";
 import AISummaryCard from "@/components/gp/AISummaryCard";
 import QuickStats from "@/components/gp/QuickStats";
@@ -8,16 +9,36 @@ import SymptomFrequencyChart from "@/components/gp/SymptomFrequencyChart";
 import MedicationAdherence from "@/components/gp/MedicationAdherence";
 import HealthEventTimeline from "@/components/gp/HealthEventTimeline";
 
+function FadeUp({
+  children,
+  delay = 0,
+  className,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}) {
+  return (
+    <motion.div
+      className={className}
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.25, delay }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 export default function GPDashboard() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#F3F1F8" }}>
-      {/* Top nav bar */}
+      {/* Sticky nav bar */}
       <nav
         className="bg-white border-b border-gray-100 px-8 py-3.5 flex items-center justify-between"
         style={{ position: "sticky", top: 0, zIndex: 40 }}
       >
         <div className="flex items-center gap-3">
-          {/* Logo mark */}
           <div
             className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
             style={{ backgroundColor: "#9485D4" }}
@@ -34,8 +55,6 @@ export default function GPDashboard() {
             GP Dashboard
           </span>
         </div>
-
-        {/* Nav right: demo link to patient app */}
         <a
           href="/app"
           className="font-sans text-xs text-zentic-purple hover:underline flex items-center gap-1.5"
@@ -48,35 +67,41 @@ export default function GPDashboard() {
         </a>
       </nav>
 
-      {/* Patient header row */}
-      <PatientHeader />
+      {/* Patient header */}
+      <FadeUp>
+        <PatientHeader />
+      </FadeUp>
 
       {/* Main dashboard grid */}
       <main className="max-w-7xl mx-auto px-8 py-7 space-y-6">
         {/* Row 1: AI Summary (2/3) + Key Metrics (1/3) */}
         <div className="grid grid-cols-3 gap-6 items-start">
-          <div className="col-span-2">
+          <FadeUp delay={0.05} className="col-span-2">
             <AISummaryCard />
-          </div>
-          <div>
+          </FadeUp>
+          <FadeUp delay={0.1}>
             <QuickStats />
-          </div>
+          </FadeUp>
         </div>
 
         {/* Row 2: Symptom Trend (2/3) + Frequency (1/3) */}
         <div className="grid grid-cols-3 gap-6 items-start">
-          <div className="col-span-2">
+          <FadeUp delay={0.15} className="col-span-2">
             <SymptomTrendChart />
-          </div>
-          <div>
+          </FadeUp>
+          <FadeUp delay={0.2}>
             <SymptomFrequencyChart />
-          </div>
+          </FadeUp>
         </div>
 
         {/* Row 3: Adherence (1/2) + Timeline (1/2) */}
         <div className="grid grid-cols-2 gap-6 items-start">
-          <MedicationAdherence />
-          <HealthEventTimeline />
+          <FadeUp delay={0.25}>
+            <MedicationAdherence />
+          </FadeUp>
+          <FadeUp delay={0.3}>
+            <HealthEventTimeline />
+          </FadeUp>
         </div>
       </main>
     </div>

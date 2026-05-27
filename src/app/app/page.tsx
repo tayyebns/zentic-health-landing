@@ -60,7 +60,7 @@ export default function PatientHome() {
         <div className="grid grid-cols-2 gap-2">
           <div className="rounded-xl p-3" style={{ backgroundColor: "#F3F1F8" }}>
             <p className="font-display text-lg font-semibold text-zentic-purple">{adherence}%</p>
-            <p className="font-sans text-[10px] text-gray-500">{t.dailyCare.avgSeverity.replace("Avg severity", "Adherence today")}</p>
+            <p className="font-sans text-[10px] text-gray-500">{t.reminders.taken} today</p>
           </div>
           <div className="rounded-xl p-3" style={{ backgroundColor: "#F3F1F8" }}>
             <p className="font-display text-lg font-semibold text-zentic-purple">{symptoms.length}</p>

@@ -28,3 +28,14 @@ html, body {
     text-wrap: balance;
   }
 }
+
+/* RTL layout overrides */
+[dir="rtl"] input,
+[dir="rtl"] textarea {
+  text-align: right;
+}
+
+/* Ensure Recharts labels stay LTR inside RTL containers */
+[dir="rtl"] .recharts-wrapper {
+  direction: ltr;
+}
