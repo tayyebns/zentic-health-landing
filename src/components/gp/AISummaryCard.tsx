@@ -2,6 +2,12 @@
 
 import { useZenticStore } from "@/lib/store";
 
+function formatDate(iso: string): string {
+  const [, m, d] = iso.split("-");
+  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  return `${parseInt(d)} ${months[parseInt(m) - 1]} 2026`;
+}
+
 export default function AISummaryCard() {
   const gpSummary = useZenticStore((s) => s.gpSummary);
 
@@ -33,7 +39,7 @@ export default function AISummaryCard() {
             Auto-generated
           </span>
           <span className="font-sans text-xs text-gray-400">
-            Generated {gpSummary.generatedDate}
+            Generated {formatDate(gpSummary.generatedDate)}
           </span>
         </div>
       </div>

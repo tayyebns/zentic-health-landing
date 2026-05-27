@@ -11,6 +11,8 @@ export interface Translations {
   home: {
     title: string;
     subtitle: string;
+    mostRecent: string;
+    adherenceToday: string;
   };
   dailyCare: {
     title: string;
@@ -122,6 +124,8 @@ const en: Translations = {
   home: {
     title: "Welcome, Maria",
     subtitle: "Your health, clearly tracked.",
+    mostRecent: "Most recent",
+    adherenceToday: "Adherence today",
   },
   dailyCare: {
     title: "Daily Care",
@@ -245,6 +249,8 @@ const pl: Translations = {
   home: {
     title: "Witaj, Mario",
     subtitle: "Twoje zdrowie, przejrzyście śledzone.",
+    mostRecent: "Ostatnio",
+    adherenceToday: "Adherencja dziś",
   },
   dailyCare: {
     title: "Opieka dzienna",
@@ -367,6 +373,8 @@ const ur: Translations = {
   home: {
     title: "خوش آمدید، ماریہ",
     subtitle: "آپ کی صحت، واضح طور پر مرتب ہے۔",
+    mostRecent: "حال ہی میں",
+    adherenceToday: "آج کی پابندی",
   },
   dailyCare: {
     title: "روزانہ نگہداشت",
@@ -412,7 +420,7 @@ const ur: Translations = {
   },
   symptomNames: [
     "سر درد", "تھکان", "کمر کا درد", "متلی", "چکر",
-    "سینے کی تنگی", "جوڑوں کا درد", "سانس لینے میں دشواری", "ٻeیٹ درد",
+    "سینے کی تنگی", "جوڑوں کا درد", "سانس لینے میں دشواری", "پیٹ درد",
     "گھبراہٹ", "دل کی دھڑکن", "پندلیوں کی سوجن",
   ],
   gpBridge: {
@@ -490,6 +498,8 @@ const pa: Translations = {
   home: {
     title: "جی آیاں، ماریہ",
     subtitle: "تہاڈی صحت، ساف طور تے رکورڈ ہے۔",
+    mostRecent: "تازہ ترین",
+    adherenceToday: "اج دی پابندی",
   },
   dailyCare: {
     title: "روزانہ سنبھال",
@@ -535,7 +545,7 @@ const pa: Translations = {
   },
   symptomNames: [
     "سر درد", "تھکاوٹ", "کمر درد", "متلی", "چکر",
-    "سینے دی کساوٹ", "جوڑاں درد", "ساہ لین ویچ مشکل", "ٻeیٹ درد",
+    "سینے دی کساوٹ", "جوڑاں درد", "ساہ لین ویچ مشکل", "پیٹ درد",
     "گھبراہٹ", "دل دی ہھڑکن", "ٹخنیاں سوجنا",
   ],
   gpBridge: {

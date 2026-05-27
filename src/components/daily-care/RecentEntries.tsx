@@ -13,17 +13,26 @@ function formatDate(dateStr: string): string {
   return `${months[parseInt(m) - 1]} ${parseInt(d)}, 2026`;
 }
 
-function getSeverityStyle(severity: number): { bg: string; text: string; label: string } {
-  if (severity <= 2) return { bg: "#DCFCE7", text: "#15803D", label: "Very mild" };
-  if (severity <= 4) return { bg: "#FEF9C3", text: "#92400E", label: "Mild" };
-  if (severity <= 6) return { bg: "#FEF3C7", text: "#B45309", label: "Moderate" };
-  if (severity <= 8) return { bg: "#FFEDD5", text: "#C2410C", label: "Quite bad" };
-  return { bg: "#FEE2E2", text: "#B91C1C", label: "Severe" };
+function getSeverityStyle(severity: number): { bg: string; text: string } {
+  if (severity <= 2) return { bg: "#DCFCE7", text: "#15803D" };
+  if (severity <= 4) return { bg: "#FEF9C3", text: "#92400E" };
+  if (severity <= 6) return { bg: "#FEF3C7", text: "#B45309" };
+  if (severity <= 8) return { bg: "#FFEDD5", text: "#C2410C" };
+  return { bg: "#FEE2E2", text: "#B91C1C" };
+}
+
+function getSeverityLabel(severity: number, t: ReturnType<typeof useTranslation>): string {
+  if (severity <= 2) return t.severity.veryMild;
+  if (severity <= 4) return t.severity.mild;
+  if (severity <= 6) return t.severity.moderate;
+  if (severity <= 8) return t.severity.quiteBad;
+  return t.severity.severe;
 }
 
 function EntryCard({ entry, onDelete }: { entry: SymptomEntry; onDelete: () => void }) {
-  const { bg, text, label } = getSeverityStyle(entry.severity);
+  const { bg, text } = getSeverityStyle(entry.severity);
   const t = useTranslation();
+  const label = getSeverityLabel(entry.severity, t);
 
   return (
     <div className="bg-white rounded-2xl p-3.5 shadow-sm">

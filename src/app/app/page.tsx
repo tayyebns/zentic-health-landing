@@ -60,7 +60,7 @@ export default function PatientHome() {
         <div className="grid grid-cols-2 gap-2">
           <div className="rounded-xl p-3" style={{ backgroundColor: "#F3F1F8" }}>
             <p className="font-display text-lg font-semibold text-zentic-purple">{adherence}%</p>
-            <p className="font-sans text-[10px] text-gray-500">{t.reminders.taken} today</p>
+            <p className="font-sans text-[10px] text-gray-500">{t.home.adherenceToday}</p>
           </div>
           <div className="rounded-xl p-3" style={{ backgroundColor: "#F3F1F8" }}>
             <p className="font-display text-lg font-semibold text-zentic-purple">{symptoms.length}</p>
@@ -69,7 +69,7 @@ export default function PatientHome() {
         </div>
         {recentSymptom && (
           <div className="mt-3 pt-3 border-t border-gray-50">
-            <p className="font-sans text-[10px] text-gray-400 uppercase tracking-widest mb-1">Most recent</p>
+            <p className="font-sans text-[10px] text-gray-400 uppercase tracking-widest mb-1">{t.home.mostRecent}</p>
             <p className="font-sans text-xs text-gray-700">
               <span className="font-semibold">{recentSymptom.symptom}</span>
               {" "}— {recentSymptom.severity}/10
