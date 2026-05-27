@@ -1,30 +1,20 @@
 "use client";
 
 import { useMemo } from "react";
+import { motion } from "framer-motion";
 import { useZenticStore } from "@/lib/store";
+import { useTranslation } from "@/lib/useTranslation";
 import type { Medication, TimeOfDay } from "@/lib/types";
-
-// ── Time-of-day config ────────────────────────────────────────────────────────
-
-const TIME_GROUPS: Array<{ key: TimeOfDay; label: string }> = [
-  { key: "morning", label: "Morning" },
-  { key: "afternoon", label: "Afternoon" },
-  { key: "evening", label: "Evening" },
-];
 
 function TimeIcon({ group }: { group: TimeOfDay }) {
   if (group === "morning") {
     return (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
         <circle cx="12" cy="12" r="5" />
-        <line x1="12" y1="1" x2="12" y2="3" />
-        <line x1="12" y1="21" x2="12" y2="23" />
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-        <line x1="1" y1="12" x2="3" y2="12" />
-        <line x1="21" y1="12" x2="23" y2="12" />
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        <line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" />
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+        <line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" />
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
       </svg>
     );
   }
@@ -43,11 +33,9 @@ function TimeIcon({ group }: { group: TimeOfDay }) {
   );
 }
 
-// ── Medication row ────────────────────────────────────────────────────────────
-
 function MedRow({ med }: { med: Medication }) {
   const setMedicationStatus = useZenticStore((s) => s.setMedicationStatus);
-
+  const t = useTranslation();
   const isTaken = med.taken === true;
   const isSkipped = med.taken === false;
 
@@ -56,7 +44,6 @@ function MedRow({ med }: { med: Medication }) {
       className="flex items-center gap-3 py-3 border-b border-gray-50 last:border-0 transition-opacity"
       style={{ opacity: isSkipped ? 0.45 : 1 }}
     >
-      {/* Status circle */}
       <div
         className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 border-2 transition-all"
         style={{
@@ -65,22 +52,11 @@ function MedRow({ med }: { med: Medication }) {
         }}
       >
         {isTaken && (
-          <svg
-            width="11"
-            height="11"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="white"
-            strokeWidth="3.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="20 6 9 17 4 12" />
           </svg>
         )}
       </div>
-
-      {/* Name + dose */}
       <div className="flex-1 min-w-0">
         <p
           className="font-sans text-sm font-semibold leading-tight"
@@ -93,42 +69,39 @@ function MedRow({ med }: { med: Medication }) {
         </p>
         <p className="font-sans text-xs text-gray-400">{med.dose}</p>
       </div>
-
-      {/* Action buttons or status label */}
       {med.taken === null ? (
         <div className="flex gap-1.5 flex-shrink-0">
           <button
             onClick={() => setMedicationStatus(med.id, true)}
-            className="px-3 py-1 rounded-lg text-xs font-semibold transition-colors"
+            className="px-3 py-1 rounded-lg text-xs font-semibold"
             style={{ backgroundColor: "#DCFCE7", color: "#15803D" }}
           >
-            Taken
+            {t.reminders.taken}
           </button>
           <button
             onClick={() => setMedicationStatus(med.id, false)}
-            className="px-3 py-1 rounded-lg text-xs font-semibold transition-colors"
+            className="px-3 py-1 rounded-lg text-xs font-semibold"
             style={{ backgroundColor: "#F3F4F6", color: "#9CA3AF" }}
           >
-            Skip
+            {t.reminders.skip}
           </button>
         </div>
       ) : isTaken ? (
         <span className="font-sans text-xs font-semibold text-green-500 flex-shrink-0">
-          Taken
+          {t.reminders.taken}
         </span>
       ) : (
         <span className="font-sans text-xs font-semibold text-gray-400 flex-shrink-0">
-          Skipped
+          {t.reminders.skipped}
         </span>
       )}
     </div>
   );
 }
 
-// ── Page ──────────────────────────────────────────────────────────────────────
-
 export default function Reminders() {
   const medications = useZenticStore((s) => s.medications);
+  const t = useTranslation();
 
   const takenCount = useMemo(
     () => medications.filter((m) => m.taken === true).length,
@@ -138,87 +111,78 @@ export default function Reminders() {
   const pct = total > 0 ? (takenCount / total) * 100 : 0;
 
   const grouped = useMemo(() => {
-    const map: Record<TimeOfDay, Medication[]> = {
-      morning: [],
-      afternoon: [],
-      evening: [],
-    };
+    const map: Record<TimeOfDay, Medication[]> = { morning: [], afternoon: [], evening: [] };
     medications.forEach((m) => map[m.timeOfDay].push(m));
     return map;
   }, [medications]);
 
+  const timeGroups: Array<{ key: TimeOfDay; label: string }> = [
+    { key: "morning", label: t.reminders.morning },
+    { key: "afternoon", label: t.reminders.afternoon },
+    { key: "evening", label: t.reminders.evening },
+  ];
+
   return (
-    <div className="pb-6">
-      {/* Header */}
+    <motion.div
+      initial={{ opacity: 0, y: 6 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.2 }}
+      className="pb-6"
+    >
       <div className="px-4 pt-4 pb-3">
         <h1 className="font-display text-xl font-semibold text-zentic-purple-dark">
-          Reminders
+          {t.reminders.title}
         </h1>
-        <p className="font-sans text-xs text-gray-400 mt-0.5">
-          Your medication schedule for today
-        </p>
+        <p className="font-sans text-xs text-gray-400 mt-0.5">{t.reminders.subtitle}</p>
       </div>
 
       {/* Progress card */}
       <div className="mx-4 mb-4 bg-white rounded-2xl p-4 shadow-sm">
         <div className="flex items-center justify-between mb-2">
           <span className="font-sans text-sm font-semibold text-zentic-purple-dark">
-            {takenCount} of {total} taken today
+            {t.reminders.takenOfTotal(takenCount, total)}
           </span>
           <span className="font-display text-sm font-semibold text-zentic-purple">
             {Math.round(pct)}%
           </span>
         </div>
-
-        {/* Progress bar */}
         <div className="h-2.5 bg-gray-100 rounded-full overflow-hidden">
           <div
             className="h-full rounded-full transition-all duration-500 ease-out"
             style={{ width: `${pct}%`, backgroundColor: "#9485D4" }}
           />
         </div>
-
         <p className="font-sans text-xs text-gray-400 mt-2 leading-snug">
           {takenCount === total
-            ? "All medications taken — well done today."
-            : `${total - takenCount} medication${total - takenCount !== 1 ? "s" : ""} still to take today.`}
+            ? t.reminders.allTaken
+            : t.reminders.stillToTake(total - takenCount)}
         </p>
       </div>
 
       {/* Grouped medication sections */}
       <div className="space-y-3 px-4">
-        {TIME_GROUPS.map(({ key, label }) => {
+        {timeGroups.map(({ key, label }) => {
           const meds = grouped[key];
           if (!meds.length) return null;
           return (
             <div key={key} className="bg-white rounded-2xl shadow-sm overflow-hidden">
-              {/* Section header */}
-              <div
-                className="flex items-center gap-2 px-4 py-3 border-b border-gray-50"
-                style={{ color: "#9485D4" }}
-              >
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-50" style={{ color: "#9485D4" }}>
                 <TimeIcon group={key} />
                 <span className="font-display text-sm font-semibold text-zentic-purple-dark">
                   {label}
                 </span>
               </div>
-
-              {/* Med rows */}
               <div className="px-4">
-                {meds.map((med) => (
-                  <MedRow key={med.id} med={med} />
-                ))}
+                {meds.map((med) => <MedRow key={med.id} med={med} />)}
               </div>
             </div>
           );
         })}
       </div>
 
-      {/* Supportive footer note */}
       <p className="font-sans text-[11px] text-gray-400 text-center px-8 mt-5 leading-relaxed">
-        Taking your medications as prescribed helps your GP see how your
-        treatment is working.
+        {t.reminders.footerNote}
       </p>
-    </div>
+    </motion.div>
   );
 }

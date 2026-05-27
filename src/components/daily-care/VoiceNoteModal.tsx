@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "@/lib/useTranslation";
 
 interface VoiceNoteModalProps {
   onStop: (durationSeconds: number) => void;
@@ -9,7 +10,6 @@ interface VoiceNoteModalProps {
 }
 
 const BAR_COUNT = 28;
-// Pre-computed base heights so they don't change on re-render
 const BASE_HEIGHTS = Array.from(
   { length: BAR_COUNT },
   (_, i) => 10 + Math.abs(Math.sin(i * 0.45)) * 22
@@ -17,6 +17,7 @@ const BASE_HEIGHTS = Array.from(
 
 export default function VoiceNoteModal({ onStop, onCancel }: VoiceNoteModalProps) {
   const [seconds, setSeconds] = useState(0);
+  const t = useTranslation();
 
   useEffect(() => {
     const id = setInterval(() => setSeconds((s) => s + 1), 1000);
@@ -27,16 +28,17 @@ export default function VoiceNoteModal({ onStop, onCancel }: VoiceNoteModalProps
   const ss = String(seconds % 60).padStart(2, "0");
 
   return (
-    // Full-viewport backdrop — dark overlay outside phone frame
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <div
         className="absolute inset-0 bg-black/60"
         onClick={onCancel}
         aria-hidden
       />
-
-      {/* Phone-frame-shaped recording screen */}
-      <div
+      <motion.div
+        initial={{ scale: 0.97, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.97, opacity: 0 }}
+        transition={{ duration: 0.15 }}
         className="relative z-10 flex flex-col items-center justify-center overflow-hidden"
         style={{
           width: 390,
@@ -55,7 +57,7 @@ export default function VoiceNoteModal({ onStop, onCancel }: VoiceNoteModalProps
             className="w-3 h-3 rounded-full bg-red-500"
           />
           <span className="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-red-400">
-            Recording
+            {t.voice.recording}
           </span>
         </div>
 
@@ -85,29 +87,27 @@ export default function VoiceNoteModal({ onStop, onCancel }: VoiceNoteModalProps
           ))}
         </div>
 
-        {/* Hint text */}
         <p className="font-sans text-xs text-white/40 mb-8">
-          Tap Stop when you are done
+          {t.voice.tapWhenDone}
         </p>
 
-        {/* Action buttons */}
         <div className="flex gap-4">
           <button
             onClick={onCancel}
             className="px-8 py-3 rounded-full font-sans text-sm font-semibold text-white/60"
             style={{ border: "1.5px solid rgba(255,255,255,0.15)" }}
           >
-            Cancel
+            {t.voice.cancel}
           </button>
           <button
             onClick={() => onStop(seconds)}
             className="px-8 py-3 rounded-full font-sans text-sm font-semibold text-white"
             style={{ backgroundColor: "#9485D4" }}
           >
-            Stop
+            {t.voice.stop}
           </button>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

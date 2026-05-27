@@ -2,9 +2,11 @@
 
 import { useMemo } from "react";
 import { useZenticStore } from "@/lib/store";
+import { useTranslation } from "@/lib/useTranslation";
 
 export default function StatsCards() {
   const symptoms = useZenticStore((s) => s.symptoms);
+  const t = useTranslation();
 
   const { total, thisWeek, avgSeverity } = useMemo(() => {
     const total = symptoms.length;
@@ -19,9 +21,9 @@ export default function StatsCards() {
 
   return (
     <div className="grid grid-cols-3 gap-2 px-4 pt-1 pb-2">
-      <StatCard label="Total logged" value={String(total)} />
-      <StatCard label="This week" value={String(thisWeek)} />
-      <StatCard label="Avg severity" value={`${avgSeverity}/10`} />
+      <StatCard label={t.dailyCare.totalLogged} value={String(total)} />
+      <StatCard label={t.dailyCare.thisWeek} value={String(thisWeek)} />
+      <StatCard label={t.dailyCare.avgSeverity} value={`${avgSeverity}/10`} />
     </div>
   );
 }
