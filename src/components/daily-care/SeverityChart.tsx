@@ -138,7 +138,7 @@ export default function SeverityChart() {
   const [filter, setFilter] = useState("All");
 
   const symptomTypes = useMemo(
-    () => [...new Set(symptoms.map((s) => s.symptom))],
+    () => Array.from(new Set(symptoms.map((s) => s.symptom))),
     [symptoms]
   );
 
@@ -150,7 +150,7 @@ export default function SeverityChart() {
         ? symptoms
         : symptoms.filter((s) => s.symptom === filter);
 
-    const dates = [...new Set(relevant.map((s) => s.date))].sort();
+    const dates = Array.from(new Set(relevant.map((s) => s.date))).sort();
 
     const chartData = dates.map((date) => {
       const row: Record<string, unknown> = {
