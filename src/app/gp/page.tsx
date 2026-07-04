@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Wordmark from "@/components/Wordmark";
 import PatientHeader from "@/components/gp/PatientHeader";
 import AISummaryCard from "@/components/gp/AISummaryCard";
 import QuickStats from "@/components/gp/QuickStats";
@@ -39,17 +40,7 @@ export default function GPDashboard() {
         style={{ position: "sticky", top: 0, zIndex: 40 }}
       >
         <div className="flex items-center gap-3">
-          <div
-            className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
-            style={{ backgroundColor: "#9485D4" }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-            </svg>
-          </div>
-          <span className="font-display text-base font-semibold text-zentic-purple-dark">
-            Zentic Health
-          </span>
+          <Wordmark size="base" />
           <span className="text-gray-300 text-lg">|</span>
           <span className="font-sans text-sm text-gray-500 font-medium">
             GP Dashboard

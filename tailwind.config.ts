@@ -14,10 +14,15 @@ const config: Config = {
         "zentic-purple-light": "#EDEAF6",
         "zentic-bg": "#F3F1F8",
         "zentic-backdrop": "#E0DCE8",
+        "zentic-ink": "#171633",
+        "zentic-ink-soft": "#54506E",
+        "zentic-line": "#E3E0EC",
+        "zentic-deep": "#3B2D8A",
       },
       fontFamily: {
         display: ["var(--font-fraunces)", "Georgia", "serif"],
         sans: ["var(--font-plus-jakarta)", "system-ui", "sans-serif"],
+        "public-sans": ["var(--font-public-sans)", "system-ui", "sans-serif"],
       },
       borderRadius: {
         phone: "28px",
