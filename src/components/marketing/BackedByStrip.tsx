@@ -30,13 +30,13 @@ export default function BackedByStrip() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={logo.name}
-            className="opacity-60 transition-opacity duration-200 hover:opacity-100"
+            className="flex h-11 w-28 items-center opacity-60 transition-opacity duration-200 hover:opacity-100 md:h-12 md:w-32"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={logo.src}
               alt={logo.name}
-              className="h-11 w-auto object-contain md:h-12"
+              className="max-h-full max-w-full object-contain"
             />
           </a>
         ))}

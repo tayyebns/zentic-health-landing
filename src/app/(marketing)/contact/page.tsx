@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import BackedByStrip from "@/components/marketing/BackedByStrip";
 import CopyableEmail from "@/components/marketing/CopyableEmail";
 import FoundersSection from "@/components/marketing/FoundersSection";
+import TeamSection from "@/components/marketing/TeamSection";
 
 const TITLE = "Contact Zentic Health";
 const DESCRIPTION =
@@ -43,6 +44,10 @@ export default function ContactPage() {
 
       <div className="mt-16 border-t border-zentic-line pt-10">
         <FoundersSection />
+      </div>
+
+      <div className="mt-16 border-t border-zentic-line pt-10">
+        <TeamSection />
       </div>
 
       <div className="mt-16 border-t border-zentic-line pt-10">

@@ -90,11 +90,11 @@ export default function HomePage() {
       </section>
 
       {/* Language strip */}
-      <section className="mx-auto max-w-4xl px-6 py-14 text-center md:px-10 md:py-16">
+      <section className="mx-auto max-w-6xl px-6 py-14 md:px-10 md:py-16">
         <h2 className="font-display text-xl font-semibold text-zentic-ink md:text-2xl">
           Zentic Health speaks your language
         </h2>
-        <p className="mx-auto mt-5 max-w-2xl font-sans text-sm leading-relaxed text-zentic-ink-soft md:text-base">
+        <p className="mt-5 max-w-2xl font-sans text-sm leading-relaxed text-zentic-ink-soft md:text-base">
           Punjabi, Urdu, Gujarati, Bengali, Polish, Romanian, and any language you need.
         </p>
       </section>
@@ -136,7 +136,7 @@ export default function HomePage() {
           </h2>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-full bg-zentic-deep px-7 py-3 font-sans text-sm font-semibold text-white transition-colors hover:bg-zentic-purple-dark"
+            className="inline-flex items-center gap-2 rounded-xl bg-zentic-deep px-7 py-3 font-sans text-sm font-semibold text-white transition-colors hover:bg-zentic-purple-dark"
           >
             Get in touch
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">

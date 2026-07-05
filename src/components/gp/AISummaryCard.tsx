@@ -33,7 +33,7 @@ export default function AISummaryCard() {
         </div>
         <div className="flex items-center gap-2 flex-wrap">
           <span
-            className="rounded-full text-[10px] font-semibold px-2.5 py-1"
+            className="rounded-md text-[10px] font-semibold px-2.5 py-1"
             style={{ backgroundColor: "#EDEAF6", color: "#9485D4" }}
           >
             Auto-generated

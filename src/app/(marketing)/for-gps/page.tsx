@@ -53,7 +53,7 @@ export default function ForGPsPage() {
         </p>
 
         {/* Opening statement */}
-        <h1 className="max-w-2xl font-display text-3xl font-semibold leading-tight text-zentic-ink md:text-[2.15rem]">
+        <h1 className="max-w-2xl font-display text-3xl font-semibold leading-tight text-zentic-ink md:text-4xl">
           Patients arrive with structured, relevant history, not a rambling
           verbal account reconstructed in a ten-minute slot.
         </h1>
@@ -118,28 +118,25 @@ export default function ForGPsPage() {
         </dl>
       </div>
 
-      <div className="mx-auto mt-16 max-w-3xl border-t border-zentic-line px-6 pt-14 md:px-10">
-        {/* Clinical safety framing */}
-        <h2 className="font-display text-xl font-semibold text-zentic-ink">
-          Clinical safety
-        </h2>
-        <p className="mt-3 max-w-xl font-sans text-sm leading-relaxed text-zentic-ink-soft">
-          Zentic is a communication tool, not a diagnostic device. It does not
-          generate AI-driven clinical recommendations, and it does not produce
-          automated alerts that could be read as medical advice. It presents
-          what the patient recorded, structured for faster reading. Clinical
-          judgement remains entirely with the GP.
-        </p>
-      </div>
+      <div className="mt-16 bg-zentic-bg py-14 md:py-20">
+        <div className="mx-auto max-w-3xl px-6 md:px-10">
+          {/* Clinical safety framing, called out rather than another stacked heading block */}
+          <h2 className="font-display text-xl font-semibold text-zentic-ink">
+            Clinical safety
+          </h2>
+          <p className="mt-3 max-w-xl font-sans text-sm leading-relaxed text-zentic-ink-soft">
+            Zentic is a communication tool, not a diagnostic device. It does not
+            generate AI-driven clinical recommendations, and it does not produce
+            automated alerts that could be read as medical advice. It presents
+            what the patient recorded, structured for faster reading. Clinical
+            judgement remains entirely with the GP.
+          </p>
 
-      <div className="mx-auto mt-16 max-w-3xl border-t border-zentic-line px-6 pt-14 md:px-10">
-        {/* Current status */}
-        <h2 className="font-display text-xl font-semibold text-zentic-ink">
-          Current status
-        </h2>
-        <p className="mt-3 font-sans text-sm leading-relaxed text-zentic-ink-soft">
-          In early conversations with GP practices in Birmingham.
-        </p>
+          <p className="mt-6 flex items-center gap-2 font-sans text-xs text-zentic-ink-soft">
+            <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-zentic-purple" />
+            Current status: in early conversations with GP practices in Birmingham.
+          </p>
+        </div>
       </div>
     </div>
   );

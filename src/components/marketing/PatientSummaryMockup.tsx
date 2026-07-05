@@ -22,7 +22,7 @@ export default function PatientSummaryMockup() {
           <span className="font-sans text-[11px] font-semibold uppercase tracking-wide text-zentic-ink-soft">
             Patient summary
           </span>
-          <span className="rounded-full bg-zentic-purple-light px-2.5 py-1 font-sans text-[10px] font-semibold text-zentic-purple-dark">
+          <span className="rounded-md bg-zentic-purple-light px-2.5 py-1 font-sans text-[10px] font-semibold text-zentic-purple-dark">
             Last 30 days
           </span>
         </div>

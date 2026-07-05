@@ -36,7 +36,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 aria-current={isActive ? "page" : undefined}
-                className={`rounded-full px-4 py-2 font-sans text-sm transition-colors ${
+                className={`rounded-lg px-4 py-2 font-sans text-sm transition-colors ${
                   isActive
                     ? "bg-zentic-purple-light font-semibold text-zentic-deep"
                     : "font-medium text-zentic-ink-soft hover:text-zentic-ink"

@@ -22,7 +22,7 @@ export default function MockPatientHeader() {
             </span>
             <span className="text-zentic-line">&middot;</span>
             <span
-              className="rounded-full px-2 py-0.5 font-sans text-[10px] font-semibold"
+              className="rounded-md px-2 py-0.5 font-sans text-[10px] font-semibold"
               style={{ backgroundColor: "#EDEAF6", color: "#7B6ABF" }}
             >
               {PATIENT.language}

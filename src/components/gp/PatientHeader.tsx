@@ -49,7 +49,7 @@ export default function PatientHeader() {
               </span>
               <span className="text-gray-300">·</span>
               <span
-                className="rounded-full text-xs font-semibold px-2 py-0.5"
+                className="rounded-md text-xs font-semibold px-2 py-0.5"
                 style={{ backgroundColor: "#EDEAF6", color: "#9485D4" }}
               >
                 {LANGUAGE_LABELS[patient.primaryLanguage] ?? patient.primaryLanguage}

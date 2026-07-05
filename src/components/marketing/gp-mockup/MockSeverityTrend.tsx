@@ -72,7 +72,7 @@ export default function MockSeverityTrend() {
       </div>
 
       <ResponsiveContainer width="100%" height={220}>
-        <LineChart data={TREND_DATA} margin={{ top: 8, right: 8, bottom: 0, left: -12 }}>
+        <LineChart data={TREND_DATA} margin={{ top: 8, right: 8, bottom: 0, left: 0 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#F3F1F8" vertical={false} />
           <XAxis
             dataKey="date"
@@ -86,7 +86,7 @@ export default function MockSeverityTrend() {
             tick={{ fontSize: 10, fill: "#8B87A0" }}
             tickLine={false}
             axisLine={false}
-            width={24}
+            width={28}
           />
           <Tooltip content={<CustomTooltip />} />
           <Line

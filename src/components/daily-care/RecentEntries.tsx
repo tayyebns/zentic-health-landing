@@ -43,13 +43,13 @@ function EntryCard({ entry, onDelete }: { entry: SymptomEntry; onDelete: () => v
               {entry.symptom}
             </span>
             <span
-              className="rounded-full px-2 py-0.5 text-[10px] font-semibold flex-shrink-0"
+              className="rounded-md px-2 py-0.5 text-[10px] font-semibold flex-shrink-0"
               style={{ backgroundColor: bg, color: text }}
             >
               {entry.severity}/10 · {label}
             </span>
             {entry.hasVoiceNote && (
-              <span className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold bg-zentic-purple-light text-zentic-purple flex-shrink-0">
+              <span className="flex items-center gap-1 rounded-md px-2 py-0.5 text-[10px] font-semibold bg-zentic-purple-light text-zentic-purple flex-shrink-0">
                 <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                   <path d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z" />
                   <path d="M19 10v2a7 7 0 0 1-14 0v-2" />

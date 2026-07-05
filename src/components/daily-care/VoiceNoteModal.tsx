@@ -94,14 +94,14 @@ export default function VoiceNoteModal({ onStop, onCancel }: VoiceNoteModalProps
         <div className="flex gap-4">
           <button
             onClick={onCancel}
-            className="px-8 py-3 rounded-full font-sans text-sm font-semibold text-white/60"
+            className="px-8 py-3 rounded-xl font-sans text-sm font-semibold text-white/60"
             style={{ border: "1.5px solid rgba(255,255,255,0.15)" }}
           >
             {t.voice.cancel}
           </button>
           <button
             onClick={() => onStop(seconds)}
-            className="px-8 py-3 rounded-full font-sans text-sm font-semibold text-white"
+            className="px-8 py-3 rounded-xl font-sans text-sm font-semibold text-white"
             style={{ backgroundColor: "#9485D4" }}
           >
             {t.voice.stop}

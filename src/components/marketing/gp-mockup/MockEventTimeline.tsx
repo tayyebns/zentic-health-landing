@@ -118,7 +118,11 @@ export default function MockEventTimeline() {
               <div key={i} className="relative flex items-start gap-3">
                 <div
                   className="z-10 flex h-[26px] w-[26px] flex-shrink-0 items-center justify-center rounded-full"
-                  style={{ backgroundColor: cfg.bg, color: cfg.color }}
+                  style={{
+                    backgroundColor: cfg.bg,
+                    color: cfg.color,
+                    boxShadow: `inset 0 0 0 1.5px ${cfg.color}40`,
+                  }}
                 >
                   {cfg.icon}
                 </div>

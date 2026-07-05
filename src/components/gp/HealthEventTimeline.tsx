@@ -154,7 +154,11 @@ export default function HealthEventTimeline() {
                 {/* Icon node */}
                 <div
                   className="w-[34px] h-[34px] rounded-full flex items-center justify-center flex-shrink-0 z-10"
-                  style={{ backgroundColor: cfg.bg, color: cfg.color }}
+                  style={{
+                    backgroundColor: cfg.bg,
+                    color: cfg.color,
+                    boxShadow: `inset 0 0 0 1.5px ${cfg.color}40`,
+                  }}
                 >
                   {cfg.icon}
                 </div>
