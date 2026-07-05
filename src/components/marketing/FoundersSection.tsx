@@ -9,7 +9,7 @@ const FOUNDERS = [
   },
   {
     name: "Tayyeb Nadeem Somro",
-    title: "Co-Founder, Growth & Tech",
+    title: "Co-Founder, Growth & Partnerships",
     linkedin: "https://www.linkedin.com/in/tayyeb-nadeem-somro/",
     email: "tayyebnadeemsomro@gmail.com",
   },
