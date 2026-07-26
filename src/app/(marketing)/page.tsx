@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
 };
 
-const TRUST_CHIPS = ["WCAG 2.2 AA", "Multilingual", "GDPR-minded"];
+const TRUST_CHIPS = ["Multilingual", "GDPR-minded"];
 
 const FEATURES = [
   {
