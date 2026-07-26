@@ -24,8 +24,6 @@ export const metadata: Metadata = {
   },
 };
 
-const TRUST_CHIPS = ["GDPR-minded"];
-
 const FEATURES = [
   {
     title: "Multilingual",
@@ -92,19 +90,6 @@ export default function HomePage() {
               >
                 For GP practices
               </Link>
-            </div>
-
-            <div className="mt-8 flex flex-wrap gap-2">
-              {TRUST_CHIPS.map((chip, i) => (
-                <span
-                  key={chip}
-                  className={`rounded-ds-sm px-3 py-1.5 font-ds text-ds-caption font-medium ${
-                    i % 2 === 0 ? "bg-ds-primary-tint text-ds-primary" : "bg-ds-accent-soft text-ds-primary"
-                  }`}
-                >
-                  {chip}
-                </span>
-              ))}
             </div>
           </div>
           <div className="md:col-span-5">
