@@ -1,6 +1,19 @@
+// Design-system hex values for contexts (SVG/recharts props) that can't take
+// Tailwind classes. Keep in sync with the ds-* tokens in tailwind.config.ts.
+export const DS_COLORS = {
+  primary: "#272665",
+  accent: "#9485D4",
+  ink: "#1A1A2E",
+  inkSecondary: "#6B7280",
+  border: "#EEEEF4",
+  success: "#16A34A",
+  warning: "#D97706",
+  alert: "#DC2626",
+};
+
 export const SYMPTOM_COLORS: Record<string, string> = {
-  Migraine: "#9485D4",
-  Nausea: "#C99A3E",
+  Migraine: DS_COLORS.accent,
+  Nausea: DS_COLORS.warning,
 };
 
 export const PATIENT = {

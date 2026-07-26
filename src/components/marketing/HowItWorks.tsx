@@ -15,7 +15,7 @@ const STEPS = [
 
 function StepNumber({ n }: { n: number }) {
   return (
-    <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border-2 border-zentic-purple font-display text-sm font-semibold text-zentic-deep">
+    <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-ds-primary-tint font-ds text-ds-body font-semibold text-ds-primary">
       {n}
     </span>
   );
@@ -30,7 +30,7 @@ export default function HowItWorks() {
           <div key={step.title} className="flex flex-1 items-center last:flex-none">
             <StepNumber n={i + 1} />
             {i < STEPS.length - 1 && (
-              <span className="mx-3 h-px flex-1 bg-zentic-line" />
+              <span className="mx-3 h-px flex-1 bg-ds-border" />
             )}
           </div>
         ))}
@@ -42,10 +42,10 @@ export default function HowItWorks() {
             <div className="mb-4 md:hidden">
               <StepNumber n={i + 1} />
             </div>
-            <h3 className="font-display text-xl font-semibold text-zentic-ink">
+            <h3 className="font-ds text-ds-title text-ds-ink">
               {step.title}
             </h3>
-            <p className="mt-2.5 max-w-xs font-sans text-sm leading-relaxed text-zentic-ink-soft">
+            <p className="mt-2.5 max-w-xs font-ds text-ds-body text-ds-ink-secondary">
               {step.description}
             </p>
           </li>

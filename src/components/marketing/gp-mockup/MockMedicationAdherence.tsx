@@ -3,8 +3,8 @@ import { MEDICATIONS } from "./data";
 const STATUS_CONFIG = {
   taken: {
     label: "Taken",
-    color: "#6B9463",
-    bg: "#E7EFE3",
+    color: "#16A34A",
+    bg: "#E8F6ED",
     icon: (
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="20 6 9 17 4 12" />
@@ -13,8 +13,8 @@ const STATUS_CONFIG = {
   },
   skipped: {
     label: "Skipped",
-    color: "#A8402B",
-    bg: "#F5E6E1",
+    color: "#DC2626",
+    bg: "#FCEAEA",
     icon: (
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
         <line x1="18" y1="6" x2="6" y2="18" />
@@ -24,8 +24,8 @@ const STATUS_CONFIG = {
   },
   pending: {
     label: "Not yet actioned",
-    color: "#8B87A0",
-    bg: "#F3F1F8",
+    color: "#6B7280",
+    bg: "#F1F0F9",
     icon: (
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="9" />
@@ -48,18 +48,15 @@ export default function MockMedicationAdherence() {
   );
 
   return (
-    <div
-      className="self-start rounded-2xl bg-white p-4 md:p-5"
-      style={{ boxShadow: "0 1px 2px rgba(0,0,0,0.04)" }}
-    >
+    <div className="self-start rounded-ds-lg bg-ds-surface p-4 shadow-ds-card md:p-5">
       <div className="mb-4 flex items-center justify-between">
-        <h4 className="font-display text-sm font-semibold text-zentic-ink">
+        <h4 className="font-ds text-ds-body font-semibold text-ds-ink">
           Medication Adherence
         </h4>
-        <span className="font-sans text-[11px] text-zentic-ink-soft/70">recent activity</span>
+        <span className="font-ds text-[11px] text-ds-ink-secondary">recent activity</span>
       </div>
 
-      <p className="font-sans text-sm text-zentic-ink">
+      <p className="font-ds text-ds-body text-ds-ink">
         <span className="font-semibold">{taken} of {MEDICATIONS.length}</span> taken
       </p>
 
@@ -75,30 +72,30 @@ export default function MockMedicationAdherence() {
               >
                 {cfg.icon}
               </span>
-              <span className="font-sans text-xs text-zentic-ink-soft">
-                {cfg.label} <span className="font-semibold text-zentic-ink">{counts[key]}</span>
+              <span className="font-ds text-ds-caption text-ds-ink-secondary">
+                {cfg.label} <span className="font-semibold text-ds-ink">{counts[key]}</span>
               </span>
             </div>
           );
         })}
       </div>
 
-      <div className="mt-4 max-h-72 space-y-2.5 overflow-y-auto border-t border-zentic-line pt-4 pr-1">
+      <div className="mt-4 max-h-72 space-y-2.5 overflow-y-auto border-t border-ds-border pt-4 pr-1">
         {sortedMedications.map((med) => {
           const cfg = STATUS_CONFIG[med.status];
           const isSkipped = med.status === "skipped";
           return (
             <div key={med.name} className="flex items-center justify-between gap-2">
               <div className="min-w-0">
-                <p className="truncate font-sans text-xs font-semibold text-zentic-ink">
+                <p className="truncate font-ds text-ds-caption font-semibold text-ds-ink">
                   {med.name}
                 </p>
-                <p className="truncate font-sans text-[10px] text-zentic-ink-soft/70">
+                <p className="truncate font-ds text-[10px] text-ds-ink-secondary">
                   {med.detail}
                 </p>
               </div>
               <span
-                className={`flex flex-shrink-0 items-center gap-1 rounded-full px-2 py-0.5 font-sans text-[10px] ${
+                className={`flex flex-shrink-0 items-center gap-1 rounded-full px-2 py-0.5 font-ds text-[10px] ${
                   isSkipped ? "font-bold" : "font-semibold"
                 }`}
                 style={{

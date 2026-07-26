@@ -31,14 +31,14 @@ export default function PeopleSection({
 }) {
   return (
     <div>
-      <p className="font-sans text-xs font-semibold uppercase tracking-wider text-zentic-ink-soft">
+      <p className="font-ds text-ds-caption font-semibold uppercase tracking-wider text-ds-ink-secondary">
         {heading}
       </p>
       <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2">
         {people.map((person) => (
           <div key={person.name} className="flex flex-col gap-1.5">
             <div className="flex items-center gap-0.5">
-              <p className="font-display text-lg font-semibold text-zentic-ink">
+              <p className="font-ds text-ds-title text-ds-ink">
                 {person.name}
               </p>
               <a
@@ -46,7 +46,7 @@ export default function PeopleSection({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${person.name} on LinkedIn`}
-                className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center text-zentic-purple transition-opacity hover:opacity-70 md:h-7 md:w-7"
+                className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-ds-sm text-ds-primary transition-all duration-150 hover:bg-ds-primary-tint active:scale-[0.97] md:h-9 md:w-9"
               >
                 <LinkedInIcon />
               </a>
@@ -54,13 +54,13 @@ export default function PeopleSection({
                 <a
                   href={`mailto:${person.email}`}
                   aria-label={`Email ${person.name}`}
-                  className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center text-zentic-purple transition-opacity hover:opacity-70 md:h-7 md:w-7"
+                  className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-ds-sm text-ds-primary transition-all duration-150 hover:bg-ds-primary-tint active:scale-[0.97] md:h-9 md:w-9"
                 >
                   <EmailIcon />
                 </a>
               )}
             </div>
-            <p className="font-sans text-xs font-semibold text-zentic-ink-soft">
+            <p className="font-ds text-ds-caption font-semibold text-ds-ink-secondary">
               {person.title}
             </p>
           </div>

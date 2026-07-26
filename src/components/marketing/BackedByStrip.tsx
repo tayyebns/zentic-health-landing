@@ -19,7 +19,7 @@ const LOGOS = [
 export default function BackedByStrip() {
   return (
     <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
-      <p className="w-32 flex-shrink-0 font-sans text-xs font-semibold uppercase tracking-wider text-zentic-ink-soft">
+      <p className="w-32 flex-shrink-0 font-ds text-ds-caption font-semibold uppercase tracking-wider text-ds-ink-secondary">
         Backed by
       </p>
       <div className="flex flex-wrap items-center gap-8">

@@ -1,16 +1,16 @@
 "use client";
 
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, LabelList } from "recharts";
-import { FREQUENCY_DATA, SYMPTOM_COLORS } from "./data";
+import { FREQUENCY_DATA, SYMPTOM_COLORS, DS_COLORS } from "./data";
 
 export default function MockFrequencyChart() {
   return (
-    <div className="rounded-2xl bg-white p-4 md:p-5" style={{ boxShadow: "0 1px 2px rgba(0,0,0,0.04)" }}>
+    <div className="rounded-ds-lg bg-ds-surface p-4 shadow-ds-card md:p-5">
       <div className="mb-4 flex items-center justify-between">
-        <h4 className="font-display text-sm font-semibold text-zentic-ink">
+        <h4 className="font-ds text-ds-body font-semibold text-ds-ink">
           Symptom Frequency
         </h4>
-        <span className="font-sans text-[11px] text-zentic-ink-soft/70">by occurrence</span>
+        <span className="font-ds text-[11px] text-ds-ink-secondary">by occurrence</span>
       </div>
 
       <ResponsiveContainer width="100%" height={140}>
@@ -19,25 +19,25 @@ export default function MockFrequencyChart() {
           data={FREQUENCY_DATA}
           margin={{ top: 0, right: 24, bottom: 0, left: 4 }}
         >
-          <CartesianGrid strokeDasharray="3 3" stroke="#F3F1F8" horizontal={false} />
+          <CartesianGrid strokeDasharray="3 3" stroke={DS_COLORS.border} horizontal={false} />
           <XAxis type="number" allowDecimals={false} hide />
           <YAxis
             type="category"
             dataKey="symptom"
-            tick={{ fontSize: 11, fill: "#171633" }}
+            tick={{ fontSize: 11, fill: DS_COLORS.ink }}
             tickLine={false}
             axisLine={false}
             width={70}
           />
           <Tooltip
-            cursor={{ fill: "#F3F1F8" }}
-            contentStyle={{ borderRadius: 8, border: "1px solid #E3E0EC", fontSize: 12 }}
+            cursor={{ fill: DS_COLORS.border }}
+            contentStyle={{ borderRadius: 8, border: `1px solid ${DS_COLORS.border}`, fontSize: 12 }}
           />
           <Bar dataKey="count" radius={[0, 6, 6, 0]} maxBarSize={22}>
             {FREQUENCY_DATA.map((entry) => (
               <Cell key={entry.symptom} fill={SYMPTOM_COLORS[entry.symptom]} />
             ))}
-            <LabelList dataKey="count" position="right" style={{ fontSize: 11, fill: "#54506E" }} />
+            <LabelList dataKey="count" position="right" style={{ fontSize: 11, fill: DS_COLORS.inkSecondary }} />
           </Bar>
         </BarChart>
       </ResponsiveContainer>

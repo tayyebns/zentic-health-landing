@@ -7,9 +7,9 @@ import MockEventTimeline from "./MockEventTimeline";
 
 export default function GPDashboardMockup() {
   return (
-    <div className="bg-white" aria-hidden="true">
+    <div className="bg-ds-surface" aria-hidden="true">
       <MockPatientHeader />
-      <div className="space-y-4 p-4" style={{ backgroundColor: "#F3F1F8" }}>
+      <div className="space-y-4 bg-ds-bg p-4">
         <MockKeyMetrics />
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           <div className="md:col-span-2">

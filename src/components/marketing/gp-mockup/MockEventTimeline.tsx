@@ -10,7 +10,7 @@ interface TimelineEvent {
 const TYPE_CONFIG: Record<EventType, { color: string; bg: string; icon: React.ReactNode }> = {
   symptom: {
     color: "#9485D4",
-    bg: "#EDEAF6",
+    bg: "#EDEAF9",
     icon: (
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
         <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
@@ -18,8 +18,8 @@ const TYPE_CONFIG: Record<EventType, { color: string; bg: string; icon: React.Re
     ),
   },
   medication: {
-    color: "#C99A3E",
-    bg: "#FBF1DC",
+    color: "#D97706",
+    bg: "#FBF1E6",
     icon: (
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
         <path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" strokeLinejoin="round" />
@@ -27,8 +27,8 @@ const TYPE_CONFIG: Record<EventType, { color: string; bg: string; icon: React.Re
     ),
   },
   voice_note: {
-    color: "#F59E0B",
-    bg: "#FEF3C7",
+    color: "#272665",
+    bg: "#EAE9F3",
     icon: (
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
         <path d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z" />
@@ -37,8 +37,8 @@ const TYPE_CONFIG: Record<EventType, { color: string; bg: string; icon: React.Re
     ),
   },
   access: {
-    color: "#3B82F6",
-    bg: "#DBEAFE",
+    color: "#16A34A",
+    bg: "#E8F6ED",
     icon: (
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
         <rect x="3" y="11" width="18" height="10" rx="2" />
@@ -101,16 +101,16 @@ const EVENTS: TimelineEvent[] = [
 
 export default function MockEventTimeline() {
   return (
-    <div className="rounded-2xl bg-white p-4 md:p-5" style={{ boxShadow: "0 1px 2px rgba(0,0,0,0.04)" }}>
+    <div className="rounded-ds-lg bg-ds-surface p-4 shadow-ds-card md:p-5">
       <div className="mb-4 flex items-center justify-between">
-        <h4 className="font-display text-sm font-semibold text-zentic-ink">
+        <h4 className="font-ds text-ds-body font-semibold text-ds-ink">
           Health Event Timeline
         </h4>
-        <span className="font-sans text-[11px] text-zentic-ink-soft/70">most recent first</span>
+        <span className="font-ds text-[11px] text-ds-ink-secondary">most recent first</span>
       </div>
 
       <div className="relative">
-        <div className="absolute bottom-0 left-[13px] top-0 w-px" style={{ backgroundColor: "#F3F1F8" }} />
+        <div className="absolute bottom-0 left-[13px] top-0 w-px bg-ds-border" />
         <div className="space-y-3">
           {EVENTS.map((ev, i) => {
             const cfg = TYPE_CONFIG[ev.type];
@@ -128,14 +128,14 @@ export default function MockEventTimeline() {
                 </div>
                 <div className="min-w-0 flex-1 pt-0.5">
                   <div className="flex flex-wrap items-baseline justify-between gap-x-2">
-                    <span className="font-sans text-xs font-semibold text-zentic-ink">
+                    <span className="font-ds text-ds-caption font-semibold text-ds-ink">
                       {ev.label}
                     </span>
-                    <span className="flex-shrink-0 font-sans text-[10px] text-zentic-ink-soft/60">
+                    <span className="flex-shrink-0 font-ds text-[10px] text-ds-ink-secondary">
                       {ev.date}
                     </span>
                   </div>
-                  <p className="mt-0.5 font-sans text-[11px] leading-snug text-zentic-ink-soft">
+                  <p className="mt-0.5 font-ds text-[11px] leading-snug text-ds-ink-secondary">
                     {ev.detail}
                   </p>
                 </div>

@@ -6,16 +6,15 @@ export default function MockKeyMetrics() {
       {KEY_METRICS.map((metric) => (
         <div
           key={metric.label}
-          className="rounded-xl px-4 py-3"
-          style={{ backgroundColor: "#F3F1F8" }}
+          className="rounded-ds-lg bg-ds-primary-tint px-4 py-3"
         >
-          <p className="font-display text-xl font-semibold leading-tight text-zentic-purple-dark">
+          <p className="font-ds text-ds-stat tabular-nums text-ds-primary">
             {metric.value}
           </p>
-          <p className="mt-0.5 font-sans text-xs font-semibold text-zentic-ink">
+          <p className="mt-0.5 font-ds text-ds-caption font-semibold text-ds-ink">
             {metric.label}
           </p>
-          <p className="font-sans text-[10px] text-zentic-ink-soft/70">{metric.sub}</p>
+          <p className="font-ds text-[10px] text-ds-ink-secondary">{metric.sub}</p>
         </div>
       ))}
     </div>

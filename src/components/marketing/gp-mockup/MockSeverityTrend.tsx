@@ -9,7 +9,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import { TREND_DATA, SYMPTOM_COLORS } from "./data";
+import { TREND_DATA, SYMPTOM_COLORS, DS_COLORS } from "./data";
 
 interface DotProps {
   cx?: number;
@@ -48,8 +48,8 @@ function CustomTooltip({
 }) {
   if (!active || !payload?.length) return null;
   return (
-    <div className="rounded-lg border border-zentic-line bg-white px-3 py-2 text-xs shadow-lg">
-      <p className="mb-1 font-display font-semibold text-zentic-ink">{label}</p>
+    <div className="rounded-ds-sm border border-ds-border bg-ds-surface px-3 py-2 text-xs shadow-ds-card">
+      <p className="mb-1 font-ds font-semibold text-ds-ink">{label}</p>
       {payload
         .filter((p) => p.value !== null && p.value !== undefined)
         .map((p) => (
@@ -63,27 +63,27 @@ function CustomTooltip({
 
 export default function MockSeverityTrend() {
   return (
-    <div className="rounded-2xl bg-white p-4 md:p-5" style={{ boxShadow: "0 1px 2px rgba(0,0,0,0.04)" }}>
+    <div className="rounded-ds-lg bg-ds-surface p-4 shadow-ds-card md:p-5">
       <div className="mb-4 flex items-center justify-between">
-        <h4 className="font-display text-sm font-semibold text-zentic-ink">
+        <h4 className="font-ds text-ds-body font-semibold text-ds-ink">
           Symptom Severity Trend
         </h4>
-        <span className="font-sans text-[11px] text-zentic-ink-soft/70">last 4 weeks</span>
+        <span className="font-ds text-[11px] text-ds-ink-secondary">last 4 weeks</span>
       </div>
 
       <ResponsiveContainer width="100%" height={220}>
         <LineChart data={TREND_DATA} margin={{ top: 8, right: 8, bottom: 0, left: 0 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#F3F1F8" vertical={false} />
+          <CartesianGrid strokeDasharray="3 3" stroke={DS_COLORS.border} vertical={false} />
           <XAxis
             dataKey="date"
-            tick={{ fontSize: 10, fill: "#8B87A0" }}
+            tick={{ fontSize: 10, fill: DS_COLORS.inkSecondary }}
             tickLine={false}
             axisLine={false}
           />
           <YAxis
             domain={[0, 10]}
             ticks={[0, 5, 10]}
-            tick={{ fontSize: 10, fill: "#8B87A0" }}
+            tick={{ fontSize: 10, fill: DS_COLORS.inkSecondary }}
             tickLine={false}
             axisLine={false}
             width={28}
@@ -112,20 +112,20 @@ export default function MockSeverityTrend() {
       </ResponsiveContainer>
 
       {/* Legend with shape + line-style cues, not color alone */}
-      <div className="mt-3 flex flex-wrap gap-5 border-t border-zentic-line pt-3">
+      <div className="mt-3 flex flex-wrap gap-5 border-t border-ds-border pt-3">
         <div className="flex items-center gap-2">
           <svg width="20" height="10" viewBox="0 0 20 10">
             <line x1="0" y1="5" x2="20" y2="5" stroke={SYMPTOM_COLORS.Migraine} strokeWidth="2.5" />
             <circle cx="10" cy="5" r="3.5" fill={SYMPTOM_COLORS.Migraine} />
           </svg>
-          <span className="font-sans text-xs text-zentic-ink-soft">Migraine (solid, circle)</span>
+          <span className="font-ds text-ds-body text-ds-ink-secondary">Migraine (solid, circle)</span>
         </div>
         <div className="flex items-center gap-2">
           <svg width="20" height="10" viewBox="0 0 20 10">
             <line x1="0" y1="5" x2="20" y2="5" stroke={SYMPTOM_COLORS.Nausea} strokeWidth="2.5" strokeDasharray="4 3" />
             <rect x="7" y="2" width="6" height="6" fill={SYMPTOM_COLORS.Nausea} />
           </svg>
-          <span className="font-sans text-xs text-zentic-ink-soft">Nausea (dashed, square)</span>
+          <span className="font-ds text-ds-body text-ds-ink-secondary">Nausea (dashed, square)</span>
         </div>
       </div>
     </div>

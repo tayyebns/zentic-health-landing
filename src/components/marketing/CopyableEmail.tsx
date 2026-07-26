@@ -26,7 +26,7 @@ export default function CopyableEmail({
         type="button"
         onClick={handleCopy}
         aria-label="Copy email address"
-        className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-md text-zentic-ink-soft/70 transition-colors hover:bg-zentic-purple-light hover:text-zentic-purple-dark md:h-6 md:w-6"
+        className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-ds-sm text-ds-ink-secondary transition-all duration-150 hover:bg-ds-accent-soft hover:text-ds-primary active:scale-[0.97] md:h-8 md:w-8"
       >
         {copied ? (
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -40,7 +40,7 @@ export default function CopyableEmail({
         )}
       </button>
       {copied && (
-        <span className="font-sans text-xs font-medium text-zentic-purple-dark">Copied</span>
+        <span className="font-ds text-ds-caption font-medium text-ds-primary">Copied</span>
       )}
     </span>
   );

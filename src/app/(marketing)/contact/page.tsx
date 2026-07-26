@@ -26,31 +26,31 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-3xl px-6 py-14 md:px-10 md:py-20">
-      <h1 className="max-w-xl font-display text-3xl font-semibold leading-tight text-zentic-ink md:text-4xl">
+    <div className="mx-auto max-w-3xl px-5 py-14 md:px-10 md:py-20">
+      <h1 className="max-w-xl text-[32px] font-bold leading-tight tracking-[-0.02em] text-ds-ink md:text-[40px]">
         Interested in Zentic Health, as a patient, a GP practice, an investor,
         or otherwise?
       </h1>
-      <p className="mt-3 font-sans text-base text-zentic-ink-soft">
+      <p className="mt-3 font-ds text-ds-body-lg text-ds-ink-secondary">
         We&apos;d love to hear from you.
       </p>
 
       <div className="mt-10 flex flex-col gap-2">
         <CopyableEmail
           email="zentichealth@gmail.com"
-          className="font-display text-2xl font-semibold text-zentic-purple-dark hover:underline"
+          className="font-ds text-[22px] font-semibold tracking-[-0.02em] text-ds-primary hover:underline"
         />
       </div>
 
-      <div className="mt-16 border-t border-zentic-line pt-10">
+      <div className="mt-16 border-t border-ds-border pt-10">
         <FoundersSection />
       </div>
 
-      <div className="mt-16 border-t border-zentic-line pt-10">
+      <div className="mt-16 border-t border-ds-border pt-10">
         <TeamSection />
       </div>
 
-      <div className="mt-16 border-t border-zentic-line pt-10">
+      <div className="mt-16 border-t border-ds-border pt-10">
         <BackedByStrip />
       </div>
     </div>

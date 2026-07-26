@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Plus_Jakarta_Sans, Public_Sans } from "next/font/google";
+import { Fraunces, Inter, Plus_Jakarta_Sans, Public_Sans } from "next/font/google";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -20,6 +20,15 @@ const publicSans = Public_Sans({
   variable: "--font-public-sans",
   display: "swap",
   weight: ["500", "700"],
+});
+
+// Marketing site design system font — scoped to the (marketing) layout only,
+// the in-app demo keeps using the fonts above.
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -51,7 +60,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${plusJakarta.variable} ${publicSans.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${plusJakarta.variable} ${publicSans.variable} ${inter.variable}`}>
       <body className="font-sans antialiased">
         {children}
       </body>
