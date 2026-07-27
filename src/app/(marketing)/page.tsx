@@ -85,10 +85,10 @@ export default function HomePage() {
                 Get in touch
               </Link>
               <Link
-                href="/for-gps"
+                href="/how-it-works"
                 className="inline-flex min-h-[44px] items-center justify-center rounded-ds-md bg-ds-secondary-bg px-6 py-3 font-ds text-ds-body font-semibold text-ds-primary transition-transform duration-150 hover:opacity-90 active:scale-[0.97]"
               >
-                For GP practices
+                See how it works
               </Link>
             </div>
           </div>

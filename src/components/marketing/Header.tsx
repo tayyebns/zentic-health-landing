@@ -7,7 +7,7 @@ import Wordmark from "@/components/Wordmark";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "For GP Practices", href: "/for-gps" },
+  { label: "How it works", href: "/how-it-works" },
   { label: "Contact", href: "/contact" },
 ];
 
