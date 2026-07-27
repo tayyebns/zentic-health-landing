@@ -23,34 +23,27 @@ function StepNumber({ n }: { n: number }) {
 
 export default function HowItWorks() {
   return (
-    <div>
-      {/* Connected timeline rail, desktop only */}
-      <div className="mb-6 hidden items-center md:flex" aria-hidden="true">
-        {STEPS.map((step, i) => (
-          <div key={step.title} className="flex flex-1 items-center last:flex-none">
+    <ol className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
+      {STEPS.map((step, i) => (
+        <li key={step.title}>
+          {/* Number sits in the same grid cell as its title, so it's
+              guaranteed to line up. The connecting line bleeds into the
+              column gap (md:-mr-8 cancels md:gap-8) to reach the next
+              circle without needing a separate, unaligned rail. */}
+          <div className="mb-4 flex items-center" aria-hidden="true">
             <StepNumber n={i + 1} />
             {i < STEPS.length - 1 && (
-              <span className="mx-3 h-px flex-1 bg-ds-border" />
+              <span className="ml-3 hidden h-px flex-1 bg-ds-border md:-mr-8 md:block" />
             )}
           </div>
-        ))}
-      </div>
-
-      <ol className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
-        {STEPS.map((step, i) => (
-          <li key={step.title}>
-            <div className="mb-4 md:hidden">
-              <StepNumber n={i + 1} />
-            </div>
-            <h3 className="font-ds text-ds-title text-ds-ink">
-              {step.title}
-            </h3>
-            <p className="mt-2.5 max-w-xs font-ds text-ds-body text-ds-ink-secondary">
-              {step.description}
-            </p>
-          </li>
-        ))}
-      </ol>
-    </div>
+          <h3 className="font-ds text-ds-title text-ds-ink">
+            {step.title}
+          </h3>
+          <p className="mt-2.5 max-w-xs font-ds text-ds-body text-ds-ink-secondary">
+            {step.description}
+          </p>
+        </li>
+      ))}
+    </ol>
   );
 }
