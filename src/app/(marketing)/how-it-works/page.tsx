@@ -178,7 +178,7 @@ export default function HowItWorksPage() {
                   <polyline points="6 9 12 15 18 9" />
                 </svg>
               </summary>
-              <p className="mt-3 font-ds text-ds-body text-ds-ink-secondary">
+              <p className="animate-faq-reveal mt-3 font-ds text-ds-body text-ds-ink-secondary">
                 {faq.answer}
               </p>
             </details>

@@ -33,6 +33,21 @@ html, body {
   .text-balance {
     text-wrap: balance;
   }
+
+  .animate-faq-reveal {
+    animation: faq-reveal 220ms ease-out;
+  }
+}
+
+@keyframes faq-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* RTL layout overrides */
