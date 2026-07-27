@@ -44,7 +44,7 @@ const DETAILS = [
 ];
 
 const WITHOUT_STRUCTURE =
-  "“It's been a rough few weeks — I think I had headaches maybe three or four times? Took something for it, I don't remember exactly what, and I think I missed a dose at some point. Felt a bit sick after lunch a few days too.”";
+  "“It's been a rough few weeks, I think I had headaches maybe three or four times? Took something for it, I don't remember exactly what, and I think I missed a dose at some point. Felt a bit sick after lunch a few days too.”";
 
 const WITH_ZENTIC = [
   "4 migraine entries logged, severity 4–8/10, over the last 4 weeks",
@@ -67,7 +67,7 @@ const FAQS = [
   {
     question: "Does my GP need to install anything?",
     answer:
-      "No. The PDF summary is a normal document you can print, email, or show on your phone — nothing for your GP to set up.",
+      "No. The PDF summary is a normal document you can print, email, or show on your phone. There's nothing for your GP to set up.",
   },
   {
     question: "Is my health data secure?",
