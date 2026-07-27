@@ -53,10 +53,6 @@ const WITH_ZENTIC = [
 
 const FAQS = [
   {
-    question: "Is Zentic free to use?",
-    answer: "Yes. Tracking, organising, and downloading your summary is free for patients.",
-  },
-  {
     question: "Do I need to share anything with my GP in advance?",
     answer:
       "No. Nothing is shared automatically. You can choose to download a PDF summary and bring it to your appointment yourself.",
