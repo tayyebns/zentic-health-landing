@@ -41,6 +41,47 @@ const DETAILS = [
   },
 ];
 
+const WITHOUT_STRUCTURE =
+  "“It's been a rough few weeks — I think I had headaches maybe three or four times? Took something for it, I don't remember exactly what, and I think I missed a dose at some point. Felt a bit sick after lunch a few days too.”";
+
+const WITH_ZENTIC = [
+  "4 migraine entries logged, severity 4–8/10, over the last 4 weeks",
+  "Sumatriptan 50mg: taken 6 of 7 days",
+  "Propranolol 40mg: taken 7 of 7 days",
+  "Nausea noted once, same day as a missed dose",
+];
+
+const FAQS = [
+  {
+    question: "Is Zentic free to use?",
+    answer: "Yes. Tracking, organising, and downloading your summary is free for patients.",
+  },
+  {
+    question: "Do I need to share anything with my GP in advance?",
+    answer:
+      "No. Nothing is shared automatically. You can choose to download a PDF summary and bring it to your appointment yourself.",
+  },
+  {
+    question: "What languages does Zentic support?",
+    answer:
+      "Punjabi, Urdu, Gujarati, Bengali, Polish, Romanian, and any language you need. You can log entries in your own language.",
+  },
+  {
+    question: "Does my GP need to install anything?",
+    answer:
+      "No. The PDF summary is a normal document you can print, email, or show on your phone — nothing for your GP to set up.",
+  },
+  {
+    question: "Is my health data secure?",
+    answer:
+      "Zentic is built with GDPR and UK DPA 2018 principles at its core. You control what's tracked, and whether you generate a summary at all.",
+  },
+  {
+    question: "Can I edit entries after logging them?",
+    answer: "Yes, entries can be corrected at any time before you generate a summary.",
+  },
+];
+
 export default function HowItWorksPage() {
   return (
     <div className="py-14 md:py-20">
@@ -84,6 +125,69 @@ export default function HowItWorksPage() {
             </div>
           ))}
         </dl>
+      </div>
+
+      <div className="mx-auto mt-16 max-w-3xl border-t border-ds-border px-5 pt-14 md:px-10">
+        <h2 className="font-ds text-ds-h2 text-ds-ink">
+          Why structure beats a diary
+        </h2>
+        <p className="mt-3 max-w-xl font-ds text-ds-body text-ds-ink-secondary">
+          The same few weeks, recalled from memory versus organised by Zentic.
+        </p>
+        <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="rounded-ds-lg border border-ds-border bg-ds-surface p-4 shadow-ds-card">
+            <p className="font-ds text-ds-caption font-semibold uppercase tracking-wider text-ds-ink-secondary">
+              Without structure
+            </p>
+            <p className="mt-3 font-ds text-ds-body italic text-ds-ink-secondary">
+              {WITHOUT_STRUCTURE}
+            </p>
+          </div>
+          <div className="rounded-ds-lg border border-ds-border bg-ds-surface p-4 shadow-ds-card">
+            <p className="font-ds text-ds-caption font-semibold uppercase tracking-wider text-ds-primary">
+              With Zentic
+            </p>
+            <ul className="mt-3 flex flex-col gap-2">
+              {WITH_ZENTIC.map((line) => (
+                <li key={line} className="flex items-start gap-2 font-ds text-ds-body text-ds-ink">
+                  <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-ds-accent" />
+                  {line}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="mx-auto mt-16 max-w-3xl border-t border-ds-border px-5 pt-14 md:px-10">
+        <h2 className="font-ds text-ds-h2 text-ds-ink">
+          Frequently asked questions
+        </h2>
+        <div className="mt-8 divide-y divide-ds-border border-y border-ds-border">
+          {FAQS.map((faq) => (
+            <details key={faq.question} className="group py-5">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-ds text-ds-title text-ds-ink">
+                {faq.question}
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="flex-shrink-0 text-ds-ink-secondary transition-transform duration-150 group-open:rotate-180"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </summary>
+              <p className="mt-3 font-ds text-ds-body text-ds-ink-secondary">
+                {faq.answer}
+              </p>
+            </details>
+          ))}
+        </div>
       </div>
 
       <div className="mx-auto mt-16 max-w-3xl px-5 md:px-10">
