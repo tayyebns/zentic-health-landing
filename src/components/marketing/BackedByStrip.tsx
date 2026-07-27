@@ -3,19 +3,16 @@ const LOGOS = [
     name: "University of Birmingham",
     src: "/logos/university-of-birmingham.png",
     href: "https://www.birmingham.ac.uk/",
-    variant: "lockup" as const,
   },
   {
     name: "Birmingham City University",
     src: "/logos/birmingham-city-university.png",
     href: "https://www.bcu.ac.uk/",
-    variant: "lockup" as const,
   },
   {
     name: "Redwood Founders",
     src: "/logos/redwood-founders.jpeg",
     href: "https://redwoodfounders.org/",
-    variant: "icon" as const,
   },
 ];
 
@@ -33,23 +30,14 @@ export default function BackedByStrip() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={logo.name}
-            className="flex items-center gap-3 transition-transform duration-150 active:scale-[0.97]"
+            className="flex h-11 w-28 items-center opacity-60 transition-opacity duration-200 hover:opacity-100 md:h-12 md:w-32"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={logo.src}
-              alt=""
-              className={
-                logo.variant === "icon"
-                  ? "h-12 w-12 flex-shrink-0 rounded-ds-sm object-cover md:h-14 md:w-14"
-                  : "h-10 w-auto max-w-[9rem] object-contain md:h-12 md:max-w-[10rem]"
-              }
+              alt={logo.name}
+              className="max-h-full max-w-full object-contain"
             />
-            {logo.variant === "icon" && (
-              <span className="font-ds text-ds-title font-bold text-ds-ink">
-                {logo.name}
-              </span>
-            )}
           </a>
         ))}
       </div>
