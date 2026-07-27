@@ -72,9 +72,9 @@ export default function HomePage() {
               Your GP has ten minutes. Your condition has months of history.
             </h1>
             <p className="mt-6 max-w-md font-ds text-ds-body-lg text-ds-ink-secondary">
-              Zentic turns day-to-day symptom and medication tracking into a structured
-              summary a GP can actually use, shared securely, in the patient&apos;s own
-              language.
+              Zentic turns day-to-day symptom and medication tracking into a clear,
+              downloadable health summary patients can bring to GP appointments, in
+              their own language.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
