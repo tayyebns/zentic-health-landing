@@ -3,6 +3,7 @@ import Link from "next/link";
 import PatientSummaryMockup from "@/components/marketing/PatientSummaryMockup";
 import HowItWorks from "@/components/marketing/HowItWorks";
 import Wordmark from "@/components/Wordmark";
+import Reveal from "@/components/marketing/Reveal";
 
 const TITLE = "Zentic Health: structured health tracking for better GP conversations";
 const DESCRIPTION =
@@ -100,7 +101,7 @@ export default function HomePage() {
 
       {/* The problem */}
       <section className="border-y border-ds-border bg-ds-surface">
-        <div className="mx-auto max-w-6xl px-5 py-16 md:px-10 md:py-20">
+        <Reveal className="mx-auto max-w-6xl px-5 py-16 md:px-10 md:py-20">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
             <p className="font-ds text-ds-h2 leading-snug text-ds-ink md:col-span-5 md:text-[28px]">
               Chronic and complex conditions don&apos;t fit into a ten-minute slot.
@@ -112,44 +113,45 @@ export default function HomePage() {
               is left making decisions on an incomplete picture.
             </p>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* How it works */}
       <section className="mx-auto max-w-6xl px-5 py-16 md:px-10 md:py-20">
-        <h2 className="mb-10 font-ds text-ds-h2 text-ds-ink md:mb-14 md:text-[28px]">
-          How it works
-        </h2>
-        <HowItWorks />
+        <Reveal>
+          <h2 className="mb-10 font-ds text-ds-h2 text-ds-ink md:mb-14 md:text-[28px]">
+            How it works
+          </h2>
+          <HowItWorks />
+        </Reveal>
       </section>
 
       {/* Feature/benefit cards */}
       <section className="mx-auto max-w-6xl px-5 py-16 md:px-10 md:py-20">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
           {FEATURES.map((feature, i) => (
-            <div
-              key={feature.title}
-              className="rounded-ds-xl border border-ds-border bg-ds-surface p-4 shadow-ds-card"
-            >
-              <div
-                className={`mb-4 flex h-11 w-11 items-center justify-center rounded-full ${
-                  i % 2 === 0 ? "bg-ds-accent-soft text-ds-primary" : "bg-ds-primary-tint text-ds-primary"
-                }`}
-              >
-                {feature.icon}
+            <Reveal key={feature.title} delay={i * 0.1}>
+              <div className="rounded-ds-xl border border-ds-border bg-ds-surface p-4 shadow-ds-card">
+                <div
+                  className={`mb-4 flex h-11 w-11 items-center justify-center rounded-full ${
+                    i % 2 === 0 ? "bg-ds-accent-soft text-ds-primary" : "bg-ds-primary-tint text-ds-primary"
+                  }`}
+                >
+                  {feature.icon}
+                </div>
+                <h3 className="font-ds text-ds-title text-ds-ink">{feature.title}</h3>
+                <p className="mt-2 font-ds text-ds-body text-ds-ink-secondary">
+                  {feature.detail}
+                </p>
               </div>
-              <h3 className="font-ds text-ds-title text-ds-ink">{feature.title}</h3>
-              <p className="mt-2 font-ds text-ds-body text-ds-ink-secondary">
-                {feature.detail}
-              </p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
 
       {/* What makes it different */}
       <section className="border-y border-ds-border bg-ds-primary">
-        <div className="mx-auto max-w-6xl px-5 py-16 md:px-10 md:py-20">
+        <Reveal className="mx-auto max-w-6xl px-5 py-16 md:px-10 md:py-20">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-12">
             <h2 className="font-ds text-ds-h2 leading-snug text-white md:col-span-6 md:text-[28px]">
               This isn&apos;t a personal log. It&apos;s structured data a GP can use.
@@ -160,22 +162,24 @@ export default function HomePage() {
               formatted for a clinical conversation, not a scroll of unstructured notes.
             </p>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* Language strip */}
       <section className="mx-auto max-w-6xl px-5 py-14 md:px-10 md:py-16">
-        <h2 className="font-ds text-ds-h2 text-ds-ink">
-          Zentic Health speaks your language
-        </h2>
-        <p className="mt-5 max-w-2xl font-ds text-ds-body-lg text-ds-ink-secondary">
-          Punjabi, Urdu, Gujarati, Bengali, Polish, Romanian, and any language you need.
-        </p>
+        <Reveal>
+          <h2 className="font-ds text-ds-h2 text-ds-ink">
+            Zentic Health speaks your language
+          </h2>
+          <p className="mt-5 max-w-2xl font-ds text-ds-body-lg text-ds-ink-secondary">
+            Punjabi, Urdu, Gujarati, Bengali, Polish, Romanian, and any language you need.
+          </p>
+        </Reveal>
       </section>
 
       {/* Closing */}
       <section className="mx-auto max-w-6xl px-5 pb-20 pt-6 md:px-10 md:pb-28">
-        <div className="flex flex-col items-start gap-6 border-t border-ds-border pt-12 md:flex-row md:items-center md:justify-between">
+        <Reveal className="flex flex-col items-start gap-6 border-t border-ds-border pt-12 md:flex-row md:items-center md:justify-between">
           <h2 className="max-w-md font-ds text-ds-h2 text-ds-ink md:text-[28px]">
             Interested in Zentic?
           </h2>
@@ -189,7 +193,7 @@ export default function HomePage() {
               <polyline points="12 5 19 12 12 19" />
             </svg>
           </Link>
-        </div>
+        </Reveal>
       </section>
     </>
   );
