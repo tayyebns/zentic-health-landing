@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PatientSummaryMockup from "@/components/marketing/PatientSummaryMockup";
 import HowItWorks from "@/components/marketing/HowItWorks";
+import FaqItem from "@/components/marketing/FaqItem";
 
 const TITLE = "How Zentic Health works: track, organise, download";
 const DESCRIPTION =
@@ -161,27 +162,7 @@ export default function HowItWorksPage() {
         </h2>
         <div className="mt-8 divide-y divide-ds-border border-y border-ds-border">
           {FAQS.map((faq) => (
-            <details key={faq.question} name="faq" className="group py-5">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-ds text-ds-title text-ds-ink">
-                {faq.question}
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="flex-shrink-0 text-ds-ink-secondary transition-transform duration-150 group-open:rotate-180"
-                >
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </summary>
-              <p className="animate-faq-reveal mt-3 font-ds text-ds-body text-ds-ink-secondary">
-                {faq.answer}
-              </p>
-            </details>
+            <FaqItem key={faq.question} question={faq.question} answer={faq.answer} />
           ))}
         </div>
       </div>

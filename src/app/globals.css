@@ -35,14 +35,14 @@ html, body {
   }
 
   .animate-faq-reveal {
-    animation: faq-reveal 220ms ease-out;
+    animation: faq-reveal 480ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 }
 
 @keyframes faq-reveal {
   from {
     opacity: 0;
-    transform: translateY(-4px);
+    transform: translateY(-6px);
   }
   to {
     opacity: 1;
