@@ -154,7 +154,7 @@ export default function HomePage() {
         <Reveal className="mx-auto max-w-6xl px-5 py-16 md:px-10 md:py-20">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-12">
             <h2 className="font-ds text-ds-h2 leading-snug text-white md:col-span-6 md:text-[28px]">
-              This isn&apos;t a personal log. It&apos;s structured data a GP can use.
+              This <em className="italic text-ds-accent">just</em> isn&apos;t a personal log. It&apos;s structured data a GP can use.
             </h2>
             <p className="font-ds text-ds-body-lg text-white/70 md:col-span-5 md:col-start-8">
               Most tracking apps produce a diary for the patient. Zentic organises the
