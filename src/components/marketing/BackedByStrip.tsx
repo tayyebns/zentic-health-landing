@@ -3,16 +3,19 @@ const LOGOS = [
     name: "University of Birmingham",
     src: "/logos/university-of-birmingham.png",
     href: "https://www.birmingham.ac.uk/",
+    variant: "lockup" as const,
   },
   {
     name: "Birmingham City University",
     src: "/logos/birmingham-city-university.png",
     href: "https://www.bcu.ac.uk/",
+    variant: "lockup" as const,
   },
   {
     name: "Redwood Founders",
     src: "/logos/redwood-founders.jpeg",
     href: "https://redwoodfounders.org/",
+    variant: "icon" as const,
   },
 ];
 
@@ -22,7 +25,7 @@ export default function BackedByStrip() {
       <p className="w-32 flex-shrink-0 font-ds text-ds-caption font-semibold uppercase tracking-wider text-ds-ink-secondary">
         Backed by
       </p>
-      <div className="flex flex-wrap items-center gap-4">
+      <div className="flex flex-wrap items-center gap-8">
         {LOGOS.map((logo) => (
           <a
             key={logo.name}
@@ -30,14 +33,23 @@ export default function BackedByStrip() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={logo.name}
-            className="flex h-16 items-center justify-center rounded-ds-lg border border-ds-border bg-ds-surface px-5 shadow-ds-card transition-transform duration-150 active:scale-[0.97] md:h-20 md:px-6"
+            className="flex items-center gap-3 transition-transform duration-150 active:scale-[0.97]"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={logo.src}
-              alt={logo.name}
-              className="h-8 w-auto max-w-[7rem] object-contain md:h-10 md:max-w-[8rem]"
+              alt=""
+              className={
+                logo.variant === "icon"
+                  ? "h-12 w-12 flex-shrink-0 rounded-ds-sm object-cover md:h-14 md:w-14"
+                  : "h-10 w-auto max-w-[9rem] object-contain md:h-12 md:max-w-[10rem]"
+              }
             />
+            {logo.variant === "icon" && (
+              <span className="font-ds text-ds-title font-bold text-ds-ink">
+                {logo.name}
+              </span>
+            )}
           </a>
         ))}
       </div>
