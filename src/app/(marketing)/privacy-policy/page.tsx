@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Reveal from "@/components/marketing/Reveal";
 
 const TITLE = "Privacy Policy: Zentic Health";
 const DESCRIPTION = "Zentic Health's privacy policy for this website.";
@@ -22,18 +23,20 @@ export const metadata: Metadata = {
 export default function PrivacyPolicyPage() {
   return (
     <div className="mx-auto max-w-3xl px-5 py-14 md:px-10 md:py-20">
-      <h1 className="text-[32px] font-bold leading-tight tracking-[-0.02em] text-ds-ink md:text-[40px]">
-        Privacy Policy
-      </h1>
-      <p className="mt-3 font-ds text-ds-body text-ds-ink-secondary">
-        Last updated: 4 July 2026
-      </p>
+      <Reveal>
+        <h1 className="text-[32px] font-bold leading-tight tracking-[-0.02em] text-ds-ink md:text-[40px]">
+          Privacy Policy
+        </h1>
+        <p className="mt-3 font-ds text-ds-body text-ds-ink-secondary">
+          Last updated: 4 July 2026
+        </p>
 
-      <p className="mt-10 font-ds text-ds-body-lg text-ds-ink-secondary">
-        This website does not use cookies or analytics tracking.
-      </p>
+        <p className="mt-10 font-ds text-ds-body-lg text-ds-ink-secondary">
+          This website does not use cookies or analytics tracking.
+        </p>
+      </Reveal>
 
-      <div className="mt-12 border-t border-ds-border pt-10">
+      <Reveal className="mt-12 border-t border-ds-border pt-10">
         <h2 className="font-ds text-ds-h2 text-ds-ink">
           Contact and enquiries
         </h2>
@@ -49,9 +52,9 @@ export default function PrivacyPolicyPage() {
           You can ask us to access, correct, or delete any information we hold about
           you at any time by emailing zentichealth@gmail.com.
         </p>
-      </div>
+      </Reveal>
 
-      <div className="mt-12 border-t border-ds-border pt-10">
+      <Reveal className="mt-12 border-t border-ds-border pt-10">
         <h2 className="font-ds text-ds-h2 text-ds-ink">
           The Zentic Health product
         </h2>
@@ -62,9 +65,9 @@ export default function PrivacyPolicyPage() {
           a dedicated privacy notice covering that data, in line with UK GDPR and the
           Data Protection Act 2018, will apply and will be published at that time.
         </p>
-      </div>
+      </Reveal>
 
-      <div className="mt-12 border-t border-ds-border pt-10">
+      <Reveal className="mt-12 border-t border-ds-border pt-10">
         <h2 className="font-ds text-ds-h2 text-ds-ink">
           Changes to this policy
         </h2>
@@ -72,9 +75,9 @@ export default function PrivacyPolicyPage() {
           If how this website handles data changes in the future, this policy will be
           updated accordingly before that change takes effect.
         </p>
-      </div>
+      </Reveal>
 
-      <div className="mt-12 border-t border-ds-border pt-10">
+      <Reveal className="mt-12 border-t border-ds-border pt-10">
         <h2 className="font-ds text-ds-h2 text-ds-ink">Contact us</h2>
         <p className="mt-3 font-ds text-ds-body-lg text-ds-ink-secondary">
           Questions about this policy:{" "}
@@ -85,7 +88,7 @@ export default function PrivacyPolicyPage() {
             zentichealth@gmail.com
           </a>
         </p>
-      </div>
+      </Reveal>
     </div>
   );
 }

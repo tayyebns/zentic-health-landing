@@ -3,6 +3,7 @@ import Link from "next/link";
 import PatientSummaryMockup from "@/components/marketing/PatientSummaryMockup";
 import HowItWorks from "@/components/marketing/HowItWorks";
 import FaqItem from "@/components/marketing/FaqItem";
+import Reveal from "@/components/marketing/Reveal";
 
 const TITLE = "How Zentic Health works: track, organise, download";
 const DESCRIPTION =
@@ -82,7 +83,7 @@ const FAQS = [
 export default function HowItWorksPage() {
   return (
     <div className="py-14 md:py-20">
-      <div className="mx-auto max-w-3xl px-5 md:px-10">
+      <Reveal className="mx-auto max-w-3xl px-5 md:px-10">
         <p className="mb-3 font-ds text-ds-caption font-semibold uppercase tracking-wider text-ds-primary">
           How it works
         </p>
@@ -93,9 +94,9 @@ export default function HowItWorksPage() {
           Zentic turns day-to-day symptom and medication tracking into a structured
           summary, so nothing gets forgotten, simplified, or lost between appointments.
         </p>
-      </div>
+      </Reveal>
 
-      <div className="mx-auto mt-14 max-w-5xl px-5 md:px-10">
+      <Reveal className="mx-auto mt-14 max-w-5xl px-5 md:px-10">
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-12">
           <div className="md:col-span-7">
             <HowItWorks />
@@ -104,9 +105,9 @@ export default function HowItWorksPage() {
             <PatientSummaryMockup />
           </div>
         </div>
-      </div>
+      </Reveal>
 
-      <div className="mx-auto mt-16 max-w-3xl border-t border-ds-border px-5 pt-14 md:px-10">
+      <Reveal className="mx-auto mt-16 max-w-3xl border-t border-ds-border px-5 pt-14 md:px-10">
         <h2 className="font-ds text-ds-h2 text-ds-ink">
           The detail
         </h2>
@@ -122,9 +123,9 @@ export default function HowItWorksPage() {
             </div>
           ))}
         </dl>
-      </div>
+      </Reveal>
 
-      <div className="mx-auto mt-16 max-w-3xl border-t border-ds-border px-5 pt-14 md:px-10">
+      <Reveal className="mx-auto mt-16 max-w-3xl border-t border-ds-border px-5 pt-14 md:px-10">
         <h2 className="font-ds text-ds-h2 text-ds-ink">
           Why structure beats a diary
         </h2>
@@ -154,9 +155,9 @@ export default function HowItWorksPage() {
             </ul>
           </div>
         </div>
-      </div>
+      </Reveal>
 
-      <div className="mx-auto mt-16 max-w-3xl border-t border-ds-border px-5 pt-14 md:px-10">
+      <Reveal className="mx-auto mt-16 max-w-3xl border-t border-ds-border px-5 pt-14 md:px-10">
         <h2 className="font-ds text-ds-h2 text-ds-ink">
           Frequently asked questions
         </h2>
@@ -165,9 +166,9 @@ export default function HowItWorksPage() {
             <FaqItem key={faq.question} question={faq.question} answer={faq.answer} />
           ))}
         </div>
-      </div>
+      </Reveal>
 
-      <div className="mx-auto mt-16 max-w-3xl px-5 md:px-10">
+      <Reveal className="mx-auto mt-16 max-w-3xl px-5 md:px-10">
         <div className="flex flex-col items-start gap-6 border-t border-ds-border pt-12 md:flex-row md:items-center md:justify-between">
           <h2 className="max-w-md font-ds text-ds-h2 text-ds-ink">
             Interested in Zentic?
@@ -183,7 +184,7 @@ export default function HowItWorksPage() {
             </svg>
           </Link>
         </div>
-      </div>
+      </Reveal>
     </div>
   );
 }
