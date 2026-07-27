@@ -161,7 +161,7 @@ export default function HowItWorksPage() {
         </h2>
         <div className="mt-8 divide-y divide-ds-border border-y border-ds-border">
           {FAQS.map((faq) => (
-            <details key={faq.question} className="group py-5">
+            <details key={faq.question} name="faq" className="group py-5">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-ds text-ds-title text-ds-ink">
                 {faq.question}
                 <svg
