@@ -54,28 +54,181 @@ const WITH_ZENTIC = [
 
 const FAQS = [
   {
-    question: "Do I need to share anything with my GP in advance?",
-    answer:
-      "No. Nothing is shared automatically. You can choose to download a PDF summary and bring it to your appointment yourself.",
+    question: "What is Zentic Health?",
+    answer: (
+      <p>
+        Zentic is a health tracking platform for people living with chronic conditions. It
+        gives you one place to record your symptoms, medications and day-to-day changes,
+        then organises that information into a clear health history you can look back on
+        and download as a PDF for your GP appointments.
+      </p>
+    ),
+  },
+  {
+    question: "Who is Zentic for?",
+    answer: (
+      <>
+        <p>
+          Zentic is designed for people living with chronic conditions who want a clearer
+          way to keep track of their health between appointments.
+        </p>
+        <p>
+          Whether your symptoms change from day to day or you simply find it difficult to
+          remember everything that&apos;s happened since your last appointment, Zentic helps
+          you keep an accurate record as you go.
+        </p>
+      </>
+    ),
+  },
+  {
+    question: "When can I use Zentic?",
+    answer: (
+      <>
+        <p>
+          Zentic is designed to support you before, during and after your appointments,
+          helping you build a continuous record of your health over time.
+        </p>
+        <p>
+          <strong className="font-semibold text-ds-ink">Before your appointment</strong>, you
+          can track symptoms, medications and changes in your health as they happen,
+          building a clear history without having to rely on memory later.
+        </p>
+        <p>
+          <strong className="font-semibold text-ds-ink">During your appointment</strong>, you
+          can refer to your health history or bring your downloaded PDF summary with you.
+          Zentic can also transcribe your consultation, helping you keep a record of what
+          was discussed and incorporating relevant information from the appointment into
+          your ongoing health history.
+        </p>
+        <p>
+          <strong className="font-semibold text-ds-ink">After your appointment</strong>, you
+          can continue tracking your symptoms, medications and changes in your health
+          alongside information captured during your consultation, creating continuity
+          from one appointment to the next.
+        </p>
+      </>
+    ),
+  },
+  {
+    question: "What can I track with Zentic?",
+    answer: (
+      <p>
+        You can record symptoms, their severity, medications and notes about changes in
+        your health. Your entries are organised over time, helping you build a clearer
+        picture of what has been happening between appointments without having to rely on
+        memory alone.
+      </p>
+    ),
+  },
+  {
+    question: "How does the PDF health summary work?",
+    answer: (
+      <>
+        <p>
+          When you&apos;re ready, you can download a structured PDF summary based on the
+          information you&apos;ve recorded in Zentic.
+        </p>
+        <p>
+          It brings together your symptoms, medications and health history in a clear
+          format designed to be easy to reference during a GP appointment. You decide when
+          to generate a summary and what you do with it afterwards.
+        </p>
+      </>
+    ),
+  },
+  {
+    question: "Do I need to send my information to my GP in advance?",
+    answer: (
+      <>
+        <p>
+          No. Zentic does not automatically send your health information to your GP, GP
+          surgery or anyone else.
+        </p>
+        <p>
+          If you choose to download a PDF summary, you remain in control of whether you
+          bring it to an appointment or share it with a healthcare professional.
+        </p>
+      </>
+    ),
+  },
+  {
+    question: "Does my GP need a Zentic account?",
+    answer: (
+      <>
+        <p>
+          No. Your GP does not need to create an account, download an app or connect their
+          systems to Zentic.
+        </p>
+        <p>
+          Your health summary is provided as a PDF, so you can simply bring it with you
+          when you feel it would be helpful during a conversation about your health.
+        </p>
+      </>
+    ),
   },
   {
     question: "What languages does Zentic support?",
-    answer:
-      "Punjabi, Urdu, Gujarati, Bengali, Polish, Romanian, and any language you need. You can log entries in your own language.",
+    answer: (
+      <>
+        <p>
+          Zentic is designed to make health tracking more accessible for people who are
+          more comfortable communicating in a language other than English.
+        </p>
+        <p>
+          You can record and understand your health information in your preferred
+          language, helping you describe what you&apos;ve been experiencing in the language
+          that feels most natural to you.
+        </p>
+      </>
+    ),
   },
   {
-    question: "Does my GP need to install anything?",
-    answer:
-      "No. The PDF summary is a normal document you can print, email, or show on your phone. There's nothing for your GP to set up.",
+    question: "Is my health information private and secure?",
+    answer: (
+      <>
+        <p>
+          Your health information is personal, and Zentic is designed with that in mind.
+          Privacy and patient control are built into how the platform works, with UK GDPR
+          and Data Protection Act 2018 principles considered throughout its design.
+        </p>
+        <p>
+          Your information is not automatically shared with your GP or other healthcare
+          providers. You stay in control of when you choose to generate, download or share
+          a health summary.
+        </p>
+      </>
+    ),
   },
   {
-    question: "Is my health data secure?",
-    answer:
-      "Zentic is built with GDPR and UK DPA 2018 principles at its core. You control what's tracked, and whether you generate a summary at all.",
+    question: "Can I edit something after I've logged it?",
+    answer: (
+      <>
+        <p>
+          Yes. If you make a mistake, remember something later or need to correct an
+          entry, you can update the information you&apos;ve recorded.
+        </p>
+        <p>
+          Your health can be complicated, and keeping a useful record shouldn&apos;t depend
+          on getting every detail perfect the first time.
+        </p>
+      </>
+    ),
   },
   {
-    question: "Can I edit entries after logging them?",
-    answer: "Yes, entries can be corrected at any time before you generate a summary.",
+    question: "Does Zentic diagnose medical conditions or provide medical advice?",
+    answer: (
+      <>
+        <p>
+          No. Zentic does not diagnose conditions, recommend treatments or replace
+          professional medical advice.
+        </p>
+        <p>
+          Zentic&apos;s role is to help you keep a clearer, more structured record of your
+          own health over time. Decisions about your care should always be made with an
+          appropriately qualified healthcare professional.
+        </p>
+      </>
+    ),
   },
 ];
 

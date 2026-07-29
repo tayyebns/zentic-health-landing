@@ -1,9 +1,9 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, type ReactNode } from "react";
 
-export default function FaqItem({ question, answer }: { question: string; answer: string }) {
-  const answerRef = useRef<HTMLParagraphElement>(null);
+export default function FaqItem({ question, answer }: { question: string; answer: ReactNode }) {
+  const answerRef = useRef<HTMLDivElement>(null);
 
   function handleToggle(e: React.SyntheticEvent<HTMLDetailsElement>) {
     const el = answerRef.current;
@@ -35,9 +35,9 @@ export default function FaqItem({ question, answer }: { question: string; answer
           <polyline points="6 9 12 15 18 9" />
         </svg>
       </summary>
-      <p ref={answerRef} className="animate-faq-reveal mt-3 font-ds text-ds-body text-ds-ink-secondary">
+      <div ref={answerRef} className="animate-faq-reveal mt-3 flex flex-col gap-3 font-ds text-ds-body text-ds-ink-secondary">
         {answer}
-      </p>
+      </div>
     </details>
   );
 }
