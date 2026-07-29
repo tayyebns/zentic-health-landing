@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PatientSummaryMockup from "@/components/marketing/PatientSummaryMockup";
-import HowItWorks from "@/components/marketing/HowItWorks";
 import FaqItem from "@/components/marketing/FaqItem";
 import Reveal from "@/components/marketing/Reveal";
 
@@ -83,23 +82,19 @@ const FAQS = [
 export default function HowItWorksPage() {
   return (
     <div className="py-14 md:py-20">
-      <Reveal className="mx-auto max-w-3xl px-5 md:px-10">
-        <p className="mb-3 font-ds text-ds-caption font-semibold uppercase tracking-wider text-ds-primary">
-          How it works
-        </p>
-        <h1 className="max-w-2xl text-[32px] font-bold leading-tight tracking-[-0.02em] text-ds-ink md:text-[40px]">
-          From daily entries to a clean summary, in three steps.
-        </h1>
-        <p className="mt-4 max-w-xl font-ds text-ds-body-lg text-ds-ink-secondary">
-          Zentic turns day-to-day symptom and medication tracking into a structured
-          summary, so nothing gets forgotten, simplified, or lost between appointments.
-        </p>
-      </Reveal>
-
-      <Reveal className="mx-auto mt-14 max-w-5xl px-5 md:px-10">
+      <Reveal className="mx-auto max-w-5xl px-5 md:px-10">
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-12">
           <div className="md:col-span-7">
-            <HowItWorks />
+            <p className="mb-3 font-ds text-ds-caption font-semibold uppercase tracking-wider text-ds-primary">
+              How it works
+            </p>
+            <h1 className="max-w-2xl text-[32px] font-bold leading-tight tracking-[-0.02em] text-ds-ink md:text-[40px]">
+              From daily entries to a clean summary, in three steps.
+            </h1>
+            <p className="mt-4 max-w-xl font-ds text-ds-body-lg text-ds-ink-secondary">
+              Zentic turns day-to-day symptom and medication tracking into a structured
+              summary, so nothing gets forgotten, simplified, or lost between appointments.
+            </p>
           </div>
           <div className="md:col-span-5">
             <PatientSummaryMockup />
