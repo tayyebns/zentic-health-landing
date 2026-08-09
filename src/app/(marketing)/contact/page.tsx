@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-3xl px-5 py-14 md:px-10 md:py-20">
+    <div className="mx-auto max-w-6xl px-5 py-14 md:px-10 md:py-20">
       <Reveal>
         <h1 className="max-w-xl text-[32px] font-bold leading-tight tracking-[-0.02em] text-ds-ink md:text-[40px]">
           Interested in Zentic Health, as a patient, a GP practice, an investor,
