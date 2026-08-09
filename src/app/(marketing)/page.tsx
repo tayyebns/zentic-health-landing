@@ -68,7 +68,7 @@ export default function HomePage() {
               Health infrastructure for chronic conditions
             </p>
             <h1 className="max-w-xl text-[40px] font-bold leading-[1.05] tracking-[-0.02em] text-ds-ink md:text-[56px]">
-              Your GP has ten minutes. Your condition has months of history.
+              Your GP has 10 minutes. Your condition has months of history.
             </h1>
             <p className="mt-6 max-w-md font-ds text-ds-body-lg text-ds-ink-secondary">
               Zentic turns day-to-day symptom and medication tracking into a clear,
