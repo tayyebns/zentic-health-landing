@@ -102,7 +102,7 @@ export default function HomePage() {
         <Reveal className="mx-auto max-w-6xl px-5 py-16 md:px-10 md:py-20">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
             <p className="font-ds text-ds-h2 leading-snug text-ds-ink md:col-span-5 md:text-[28px]">
-              Chronic and complex conditions don&apos;t fit into a ten-minute slot.
+              Chronic and complex conditions don&apos;t fit into a 10-minute slot.
             </p>
             <p className="font-ds text-ds-body-lg text-ds-ink-secondary md:col-span-6 md:col-start-7">
               Patients are asked to recall weeks of symptoms, medication changes, and
