@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PatientSummaryMockup from "@/components/marketing/PatientSummaryMockup";
 import HowItWorks from "@/components/marketing/HowItWorks";
-import Wordmark from "@/components/Wordmark";
 import Reveal from "@/components/marketing/Reveal";
 
 const TITLE = "Zentic Health: structured health tracking for better GP conversations";
@@ -65,8 +64,7 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-5 pb-16 pt-14 md:px-10 md:pb-24 md:pt-20">
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-12">
           <div className="md:col-span-7">
-            <Wordmark size="lg" animate />
-            <p className="mb-4 mt-6 font-ds text-ds-caption font-semibold uppercase tracking-wider text-ds-ink-secondary">
+            <p className="mb-4 font-ds text-ds-caption font-semibold uppercase tracking-wider text-ds-ink-secondary">
               Health infrastructure for chronic conditions
             </p>
             <h1 className="max-w-xl text-[40px] font-bold leading-[1.05] tracking-[-0.02em] text-ds-ink md:text-[56px]">
