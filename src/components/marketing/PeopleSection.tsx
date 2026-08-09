@@ -34,7 +34,7 @@ export default function PeopleSection({
       <p className="font-ds text-ds-caption font-semibold uppercase tracking-wider text-ds-ink-secondary">
         {heading}
       </p>
-      <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2">
+      <div className="mt-6 grid max-w-2xl grid-cols-1 gap-8 sm:grid-cols-2">
         {people.map((person) => (
           <div key={person.name} className="flex flex-col gap-1.5">
             <div className="flex items-center gap-0.5">
