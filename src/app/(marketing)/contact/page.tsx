@@ -31,8 +31,7 @@ export default function ContactPage() {
     <div className="mx-auto max-w-6xl px-5 py-14 md:px-10 md:py-20">
       <Reveal>
         <h1 className="max-w-xl text-[32px] font-bold leading-tight tracking-[-0.02em] text-ds-ink md:text-[40px]">
-          Interested in Zentic Health, as a patient, a GP practice, an investor,
-          or otherwise?
+          Join the waitlist
         </h1>
         <p className="mt-3 max-w-xl font-ds text-ds-body-lg text-ds-ink-secondary">
           We&apos;d love to hear from you. Leave your details below and we&apos;ll be
