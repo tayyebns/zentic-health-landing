@@ -3,6 +3,7 @@ import Link from "next/link";
 import PatientSummaryMockup from "@/components/marketing/PatientSummaryMockup";
 import HowItWorks from "@/components/marketing/HowItWorks";
 import Reveal from "@/components/marketing/Reveal";
+import SignupForm from "@/components/marketing/SignupForm";
 
 const TITLE = "Zentic Health: structured health tracking for better GP conversations";
 const DESCRIPTION =
@@ -175,22 +176,33 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      {/* Closing */}
-      <section className="mx-auto max-w-6xl px-5 pb-20 pt-6 md:px-10 md:pb-28">
-        <Reveal className="flex flex-col items-start gap-6 border-t border-ds-border pt-12 md:flex-row md:items-center md:justify-between">
-          <h2 className="max-w-md font-ds text-ds-h2 text-ds-ink md:text-[28px]">
-            Interested in Zentic?
-          </h2>
-          <Link
-            href="/contact"
-            className="inline-flex min-h-[44px] items-center gap-2 rounded-ds-md bg-ds-primary px-7 py-3 font-ds text-ds-body font-semibold text-white transition-transform duration-150 hover:opacity-95 active:scale-[0.97]"
-          >
-            Get in touch
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </Link>
+      {/* Closing — sign up */}
+      <section id="sign-up" className="scroll-mt-24 border-t border-ds-border bg-ds-surface">
+        <Reveal className="mx-auto max-w-6xl px-5 py-16 md:px-10 md:py-20">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12">
+            <div className="md:col-span-5">
+              <h2 className="max-w-md font-ds text-ds-h2 text-ds-ink md:text-[28px]">
+                Interested in Zentic?
+              </h2>
+              <p className="mt-4 max-w-md font-ds text-ds-body-lg text-ds-ink-secondary">
+                Sign up to hear when Zentic opens up to more patients, carers, and
+                practices. It takes less than a minute.
+              </p>
+              <p className="mt-6 font-ds text-ds-body text-ds-ink-secondary">
+                Prefer to talk first?{" "}
+                <Link
+                  href="/contact"
+                  className="font-semibold text-ds-primary underline underline-offset-2 hover:opacity-80"
+                >
+                  Get in touch
+                </Link>
+                .
+              </p>
+            </div>
+            <div className="md:col-span-7">
+              <SignupForm source="home" />
+            </div>
+          </div>
         </Reveal>
       </section>
     </>

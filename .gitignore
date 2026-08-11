@@ -44,3 +44,6 @@ Thumbs.db
 
 # Misc
 .eslintcache
+
+# Local signup fallback store (dev only)
+.data

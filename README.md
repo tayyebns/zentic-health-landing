@@ -20,6 +20,53 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Signup form
+
+The signup form appears at the bottom of the home page (`#sign-up`) and at the
+top of `/contact`. Both render the same component, `SignupForm`, tagged with a
+`source` so you can tell where a person signed up from.
+
+| Piece | Location |
+| --- | --- |
+| Form UI | `src/components/marketing/SignupForm.tsx` |
+| Shared validation / field options | `src/lib/signup.ts` |
+| API endpoint | `src/app/api/signup/route.ts` (`POST /api/signup`) |
+| Database schema | `supabase/schema.sql` |
+
+### Storage: Supabase (free tier)
+
+Submissions are stored in a Supabase Postgres table. The free plan gives 500 MB
+of database storage — a signup row is well under 1 KB, so that is hundreds of
+thousands of signups, and the dashboard gives you a table view and CSV export
+without any extra work.
+
+One-time setup:
+
+1. Create a free project at [supabase.com](https://supabase.com).
+2. Open **SQL Editor → New query**, paste in `supabase/schema.sql`, and run it.
+3. Go to **Settings → API** and copy the project URL and the `service_role` key.
+4. Copy `.env.example` to `.env.local` and fill in `SUPABASE_URL` and
+   `SUPABASE_SERVICE_ROLE_KEY`.
+5. Add those same two variables to the Vercel project's Environment Variables
+   before deploying.
+
+Signups are visible in Supabase under **Table Editor → signups**.
+
+### Notes
+
+- The `service_role` key is only ever read inside the API route, so it never
+  reaches the browser. Row Level Security is enabled on the table with no
+  policies, meaning the public anon key cannot read or write signups at all.
+- Email is the unique key, and the API upserts, so someone submitting twice
+  updates their existing row instead of creating a duplicate.
+- The route validates and normalises every field server-side, rejects unknown
+  dropdown values, rate-limits by IP, and drops bot submissions via a honeypot
+  field.
+- **Without** Supabase credentials, `npm run dev` writes submissions to
+  `.data/signups.json` (gitignored) so the form is testable locally. In
+  production a missing config returns an error rather than silently losing a
+  signup.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

@@ -6,9 +6,13 @@ import { NextResponse } from "next/server";
 // framework runtime (verified against a production build, not just dev).
 // This policy instead relies on 'self' for same-origin scripts/styles and
 // 'unsafe-inline' for Next's inline hydration payload. There are no custom
-// inline <script> tags anywhere in this codebase, and no forms or dynamic
-// user content is rendered back to the page, so the realistic residual risk
-// from 'unsafe-inline' here is low. Revisit if custom scripts are ever added.
+// inline <script> tags anywhere in this codebase, and the only user input on
+// the site (the signup form) is posted to a same-origin API route and never
+// rendered back into the page as markup, so the realistic residual risk from
+// 'unsafe-inline' here is low. Revisit if custom scripts are ever added.
+//
+// 'form-action' and 'connect-src' both stay at 'self': the signup form submits
+// via fetch() to /api/signup on this origin.
 export function middleware() {
   const isDev = process.env.NODE_ENV !== "production";
 
