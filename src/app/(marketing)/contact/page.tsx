@@ -6,9 +6,9 @@ import TeamSection from "@/components/marketing/TeamSection";
 import Reveal from "@/components/marketing/Reveal";
 import SignupForm from "@/components/marketing/SignupForm";
 
-const TITLE = "Contact Zentic Health";
+const TITLE = "Join the Zentic Health waitlist";
 const DESCRIPTION =
-  "Get in touch with Zentic Health as a patient, a GP practice, an investor, or otherwise.";
+  "Sign up to hear when Zentic Health opens up to more patients, carers, and GP practices, or get in touch with the team directly.";
 
 export const metadata: Metadata = {
   title: TITLE,
