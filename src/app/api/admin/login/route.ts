@@ -1,50 +1,42 @@
-import { NextResponse } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 import {
   ADMIN_COOKIE,
+  MIN_ADMIN_PASSWORD_LENGTH,
   SESSION_MAX_AGE_SECONDS,
   createSessionToken,
   isAdminConfigured,
   verifyPassword,
 } from "@/lib/admin-auth";
+import {
+  checkLoginThrottle,
+  clearLoginFailures,
+  recordLoginFailure,
+  throttleSource,
+} from "@/lib/admin-throttle";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-// Brute-force throttle. The admin panel exposes personal data, so this is
-// stricter than the public signup form: a handful of tries, then a lockout.
-const WINDOW_MS = 15 * 60 * 1000;
-const MAX_ATTEMPTS = 8;
-const attempts = new Map<string, number[]>();
-
-function clientIp(request: Request): string {
-  const forwarded = request.headers.get("x-forwarded-for");
-  if (forwarded) return forwarded.split(",")[0].trim();
-  return request.headers.get("x-real-ip") ?? "unknown";
+function throttled(retryAfter: number) {
+  return NextResponse.json(
+    { error: "Too many attempts. Please wait and try again." },
+    { status: 429, headers: { "Retry-After": String(retryAfter) } },
+  );
 }
 
-function tooManyAttempts(ip: string): boolean {
-  const now = Date.now();
-  const recent = (attempts.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
-  recent.push(now);
-  attempts.set(ip, recent);
-  if (attempts.size > 1_000) attempts.clear();
-  return recent.length > MAX_ATTEMPTS;
-}
-
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   if (!isAdminConfigured()) {
     return NextResponse.json(
-      { error: "The admin panel is not configured. ADMIN_PASSWORD is not set." },
+      {
+        error: `The admin panel is not configured. ADMIN_PASSWORD must be set and at least ${MIN_ADMIN_PASSWORD_LENGTH} characters.`,
+      },
       { status: 503 },
     );
   }
 
-  if (tooManyAttempts(clientIp(request))) {
-    return NextResponse.json(
-      { error: "Too many attempts. Please wait 15 minutes and try again." },
-      { status: 429 },
-    );
-  }
+  const source = throttleSource(request);
+  const verdict = checkLoginThrottle(source);
+  if (verdict.limited) return throttled(verdict.retryAfter);
 
   const raw = await request.text();
   if (raw.length > 1_000) {
@@ -59,9 +51,12 @@ export async function POST(request: Request) {
   }
 
   if (!verifyPassword(password)) {
+    recordLoginFailure(source);
     // Deliberately vague: no hint about whether the password was close.
     return NextResponse.json({ error: "Incorrect password." }, { status: 401 });
   }
+
+  clearLoginFailures(source);
 
   const token = createSessionToken();
   if (!token) {
