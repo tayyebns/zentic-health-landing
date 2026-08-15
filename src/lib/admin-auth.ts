@@ -13,9 +13,14 @@ export const SESSION_MAX_AGE_SECONDS = 60 * 60 * 12; // 12 hours
 
 const KEY_SALT = "zentic-admin-session-v1";
 
+// Rate limiting can only slow an online guessing attack down; password entropy
+// is what actually makes it hopeless. A short password is treated as an
+// unconfigured panel rather than a weak one.
+export const MIN_ADMIN_PASSWORD_LENGTH = 20;
+
 function adminPassword(): string | undefined {
   const value = process.env.ADMIN_PASSWORD;
-  return value && value.length > 0 ? value : undefined;
+  return value && value.length >= MIN_ADMIN_PASSWORD_LENGTH ? value : undefined;
 }
 
 export function isAdminConfigured(): boolean {

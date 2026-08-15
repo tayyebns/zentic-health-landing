@@ -3,7 +3,12 @@ import { cookies } from "next/headers";
 import AdminLogin from "@/components/admin/AdminLogin";
 import SignupsTable from "@/components/admin/SignupsTable";
 import LogoutButton from "@/components/admin/LogoutButton";
-import { ADMIN_COOKIE, isAdminConfigured, verifySessionToken } from "@/lib/admin-auth";
+import {
+  ADMIN_COOKIE,
+  MIN_ADMIN_PASSWORD_LENGTH,
+  isAdminConfigured,
+  verifySessionToken,
+} from "@/lib/admin-auth";
 import { isSupabaseConfigured, listSignups, type SignupRecord } from "@/lib/signups-store";
 
 // Never cached, never prerendered: this reads a session cookie and live data.
@@ -41,7 +46,8 @@ export default async function AdminPage() {
           <Notice title="Admin panel not configured">
             <p>
               Set the <code className="font-mono text-ds-ink">ADMIN_PASSWORD</code>{" "}
-              environment variable in Vercel and redeploy to enable this page.
+              environment variable in Vercel to a random string of at least{" "}
+              {MIN_ADMIN_PASSWORD_LENGTH} characters and redeploy to enable this page.
             </p>
           </Notice>
         </div>
